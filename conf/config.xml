@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="GB2312"?>
+<config>
+
+  <!-- 数据库连接信息 -->
+	<db_info>
+	<!-- 资源数据库 -->
+		<resDB>
+		  <driver>oracle.jdbc.OracleDriver</driver>
+          <url>jdbc:oracle:thin:@132.122.65.38:2521:zysdata</url>
+          <user>develop</user>
+          <password>Develop#2016</password>
+		</resDB>
+	</db_info>
+
+	
+	<sql_info>
+	<!-- 查询推送比对信息SQL -->
+		<queryCreateSql>
+			<![CDATA[select distinct
+				S_TITLE,
+				S_CITY_NO,
+				S_COUNTY_NO,
+				I_MAINTAINUNITID,
+				I_TASK_TYPE,
+				I_RESOURCE_TYPE,
+				I_SPEC_ID,
+				S_GRID,
+				I_PROJECT_STATE,
+				I_URGENT_LEVEL,
+				I_SOURCE,
+				I_SCHEME,
+				I_SITE,
+				S_BILL_DESC,
+				S_RES_ID
+				FILENAME,
+				FILEURL
+			 from T_IP_ORDER where STATE<>1 and rowNum<1000]]>
+		</queryCreateSql>
+		
+	</sql_info>
+	
+	<WebService_info>
+		<!-- 建单接口 -->
+		<createResBillService name="createResBillService">
+			<url>http://132.96.177.4:10085/DZYW_SITE_SERVICE/services/createResBillService?wsdl</url>
+			<namespace>http://impl.createbill.resourcesCorrection.dwf.dzywSite.app.webservice.catt.com/</namespace>
+			<method>serviceMain</method>
+			<param><![CDATA[
+				<interfacemsg>
+					<S_TITLE>${S_TITLE}</S_TITLE>
+					<S_CITY_NO>${S_CITY_NO}</S_CITY_NO>
+					<I_TASK_TYPE>${I_TASK_TYPE}</I_TASK_TYPE> 
+					<I_RESOURCE_TYPE>${I_RESOURCE_TYPE}</I_RESOURCE_TYPE>
+					<I_SPEC_ID>${I_SPEC_ID}</I_SPEC_ID>
+					<S_GRID>${S_GRID}</S_GRID>
+					<I_DEVICE_STYLE></I_DEVICE_STYLE>
+					<I_NET_LEVEL></I_NET_LEVEL>
+					<I_CIRCUIT_TYPE></I_CIRCUIT_TYPE>
+					<I_CONTROL_STATE></I_CONTROL_STATE>
+					<I_OPTICAL_STATE></I_OPTICAL_STATE>
+					<I_PROJECT_STATE>${I_PROJECT_STATE}</I_PROJECT_STATE>
+					<I_DIFFICULTY_LEVEL></I_DIFFICULTY_LEVEL>
+					<I_URGENT_LEVEL>${I_URGENT_LEVEL}</I_URGENT_LEVEL>
+					<I_SOURCE>${I_SOURCE}</I_SOURCE>
+					<I_SCHEME>${I_SCHEME}</I_SCHEME>
+					<I_SITE>${I_SITE}</I_SITE>
+					<S_BILL_DESC>${S_BILL_DESC}</S_BILL_DESC>
+					<S_OA></S_OA>
+					<ATTACH_LIST>
+						<ATTACH>
+							<S_FILENAME>${S_FILENAME}</S_FILENAME>
+							<S_FILEURL>${S_FILEURL}</S_FILEURL>
+						</ATTACH>
+					</ATTACH_LIST>
+					<RES_LIST>
+						<RESOURCE>
+							<S_RES_NAME></S_RES_NAME>
+							<S_RES_ID>${S_RES_ID}</S_RES_ID>
+							<S_FORMAT_ID></S_FORMAT_ID>
+							<S_LONGITUDE></S_LONGITUDE>
+							<S_LATITUDE></S_LATITUDE>
+						</RESOURCE>
+					</RES_LIST>
+				</interfacemsg>]]>
+			</param>
+		</createResBillService>
+		
+				<!-- 纠错状态接口 -->
+		<queryBillService name="queryBillService">
+			<url>http://132.96.177.4:10085/DZYW_SITE_SERVICE/services/queryResBillService?wsdl</url>
+			<namespace>http://impl.queryBill.resourcesCorrection.dwf.dzywSite.app.webservice.catt.com/</namespace>
+			<method>service</method>
+			<param><![CDATA[<interfacemsg>
+			<SYSTEMNO>${I_SOURCE}</SYSTEMNO> 
+			<EMOSBILLID>${EMOSBILLID}</EMOSBILLID>
+			</interfacemsg>]]></param>
+		</queryBillService>
+		
+		<!-- 反馈接口 -->
+		<feedbackBillService name="feedbackBillService">
+			<url>http://132.96.177.4:10085/DZYW_SITE_SERVICE/services/feedbackBillService?wsdl</url>
+			<namespace>http://impl.feedback.resourcesCorrection.dwf.dzywSite.app.webservice.catt.com/</namespace>
+			<method>feedbackService</method>
+			<param><![CDATA[<interfacemsg>
+			<EMOSBILLID>${}</EMOSBILLID>
+			<SYSTEMNO>${}</SYSTEMNO>
+			<S_CONTENT>${}</S_CONTENT>
+			<S_STAFFNAME></S_STAFFNAME>
+			</interfacemsg>]]></param>
+		</feedbackBillService>
+	</WebService_info>
+	
+	<!-- 基本参数 -->
+	<parameter>
+			<!-- 程序休眠时间 -->
+		<runPerid>10</runPerid>
+		
+			<!-- 批量操作数据量 -->
+		<inDbNum>10</inDbNum>
+		
+
+	</parameter>
+
+
+
+
+</config>

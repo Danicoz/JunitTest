@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="GB2312"?>
+<ENUM>
+
+		    <EnumName name="CityToDataDomain" description="根据地市转为数据域" default="100">
+		    <Value name="756" description="珠海">1030022</Value>
+			<Value name="750" description="江门">1030007</Value>
+			<Value name="755" description="深圳">1010001</Value>
+			<Value name="200" description="广州">1020002</Value>
+			<Value name="757" description="佛山">1050011</Value>
+			<Value name="769" description="东莞">1040008</Value>
+			<Value name="660" description="汕尾">1060017</Value>
+			<Value name="754" description="汕头">1060019</Value>
+			<Value name="662" description="阳江">1050015</Value>
+			<Value name="663" description="揭阳">1060018</Value>
+			<Value name="668" description="茂名">1050014</Value>
+			<Value name="751" description="韶关">1020004</Value>
+			<Value name="752" description="惠州">1040009</Value>
+			<Value name="753" description="梅州">1060021</Value>
+			<Value name="758" description="肇庆">1050012</Value>
+			<Value name="759" description="湛江">1050016</Value>
+			<Value name="760" description="中山">1030006</Value>
+			<Value name="762" description="河源">1040010</Value>
+			<Value name="763" description="清远">1020003</Value>
+			<Value name="766" description="云浮">1050013</Value>
+			<Value name="768" description="潮州">1060020</Value>
+		</EnumName>
+		
+		    <!-- 根据网元类型枚举出对应的 子专业  -->
+	     <EnumName name="ConvertData" description="适配专业数值" default="1">
+			<Value name="HW-LSTP">8</Value>
+			<Value name="BL-CLSTP">8</Value>
+			<Value name="BL-HSTP">8</Value>
+			<Value name="BL-LSTP">8</Value>
+			
+			<Value name="HW-V5">7</Value>
+			<Value name="ZX-V5">7</Value>
+			
+			<Value name="5ESS">1</Value>
+			<Value name="AXE10">1</Value>
+			<Value name="BL-AG">1</Value>
+			<Value name="CC08">1</Value>
+			<Value name="DMS100">1</Value>
+			<Value name="HW-AG">1</Value>
+			<Value name="NEAX61">1</Value>
+			<Value name="S1240">1</Value>
+			<Value name="SGM">1</Value>
+			<Value name="SP30">1</Value>
+			<Value name="YAYTH">1</Value>
+			<Value name="ZST">1</Value>
+			<Value name="ZX-AG">1</Value>
+			<Value name="ZXJ10">1</Value>
+			<Value name="BELLNGN">1</Value>
+			
+			<Value name="AL-OMC">15</Value>
+			<Value name="AL-FTP">15</Value>
+			<Value name="AL-MGW">15</Value>
+			<Value name="AL-MSCE">15</Value>
+			<Value name="HW-HLR">15</Value>
+			<Value name="HW-MGW">15</Value>
+			<Value name="HW-MSCE">15</Value>
+			<Value name="ZX-MGW">15</Value>
+			<Value name="ZX-MSCE">15</Value>
+			<Value name="ALHLR">15</Value>
+			
+			<Value name="HW-IGWB">11</Value>
+			<Value name="HW-IMGW">11</Value>
+			<Value name="HW-MRS">11</Value>
+			<Value name="HW-NE40">11</Value>
+			<Value name="HW-SG">11</Value>
+			<Value name="HW-SHLR">11</Value>
+			<Value name="HW-SS">11</Value>
+			<Value name="HW-TG">11</Value>
+			<Value name="ZX-HLR">11</Value>
+			<Value name="ZX-SG">11</Value>
+			<Value name="ZX-SHLR">11</Value>
+			<Value name="ZX-SS">11</Value>
+			<Value name="ZX-TG">11</Value>
+			<Value name="HWNGN">11</Value>
+			<Value name="HWS3528">11</Value>
+			<Value name="HWS7802">11</Value>
+			<Value name="ZXIMS">11</Value>
+			<Value name="ZXNGN">11</Value>
+			
+			<Value name="HW-ENS">24</Value>
+			<Value name="HW-AGCF">24</Value>
+			<Value name="HW-ATS">24</Value>
+			<Value name="HW-BAC">24</Value>
+			<Value name="HW-CCF">24</Value>
+			<Value name="HW-COREOMU">24</Value>
+			<Value name="HW-CSCF">24</Value>
+			<Value name="HW-HSS">24</Value>
+			<Value name="HWI2000">24</Value>
+			<Value name="HW-OMU">24</Value>
+			<Value name="HW-OMC">24</Value>
+			<Value name="HW-MGCF">24</Value>
+			<Value name="HW-MRFC">24</Value>
+			<Value name="HW-MRFP">24</Value>
+			<Value name="HW-SSF">24</Value>
+			<Value name="ZX-AGCF">24</Value>
+			<Value name="ZX-BAC">24</Value>
+			<Value name="ZX-CSCF">24</Value>
+			<Value name="ZX-HSS">24</Value>
+			<Value name="ZX-IMGW">24</Value>
+			<Value name="ZX-CG">24</Value>
+			<Value name="ZX-ENS">24</Value>
+			<Value name="ZX-OMC">24</Value>
+			<Value name="ZX-MGCF">24</Value>
+			<Value name="ZX-MMTEL">24</Value>
+			<Value name="ZX-MRFP">24</Value>
+			<Value name="ZX-SLF">24</Value>
+			<Value name="ZX-SSF">24</Value>
+			<Value name="HWOMU">24</Value>
+			</EnumName>
+	
+	 <!-- 根据设备类型枚举出对应的 网管名称  -->
+	  <EnumName name="ConvertEmsName" description="适配网管名称" default="-1">
+	  <Value name="HW-HLR">核心网综合网管HWHLR</Value>
+	  <Value name="ZX-HLR">核心网综合网管ZXHLR</Value>
+	  <Value name="AL-MGW">核心网综合网管ALMGW</Value> 
+	  <Value name="HW-MGW">核心网综合网管HWMGW</Value>  
+	  <Value name="ZX-MGW">核心网综合网管ZXMGW</Value>
+	  <Value name="AL-MSCE">核心网综合网管ALMSCE</Value> 
+	  <Value name="HW-MSCE">核心网综合网管HWMSCE</Value> 
+	  <Value name="ZX-MSCE">核心网综合网管ZXMSCE</Value> 
+	  <Value name="HW-AGCF">核心网综合网管HWIMS</Value> 
+	  <Value name="ZX-AGCF">核心网综合网管ZXIMS</Value> 
+	  <Value name="HW-ATS">核心网综合网管HWIMS</Value> 
+	  <Value name="HW-BAC">核心网综合网管HWIMS</Value>
+	  <Value name="ZX-BAC">核心网综合网管ZXIMS</Value>
+	  <Value name="HW-CCF">核心网综合网管HWIMS</Value>
+	  <Value name="ZX-CG">核心网综合网管ZXIMS</Value>
+	  <Value name="HW-CSCF">核心网综合网管HWIMS</Value> 
+	  <Value name="HW-SCSCF">核心网综合网管HWIMS</Value> 
+	  <Value name="ZX-CSCF">核心网综合网管ZXIMS</Value> 
+	  <Value name="HW-ENS">核心网综合网管HWIMS</Value> 
+	  <Value name="ZX-ENS">核心网综合网管ZXIMS</Value>
+	  <Value name="HW-HSS">核心网综合网管HWIMS</Value>
+	  <Value name="ZX-HSS">核心网综合网管ZXIMS</Value>
+	  <Value name="ZX-IMS">核心网综合网管ZXIMS</Value>
+	  <Value name="ZX-IOMC">核心网综合网管ZXIMS</Value>
+	  <Value name="HW-MGCF">核心网综合网管HWIMS</Value>
+	  <Value name="ZX-MGCF">核心网综合网管ZXIMS</Value>
+	  <Value name="HW-IMGW">核心网综合网管HWIMS</Value>
+	  <Value name="HW-SSFMGW">核心网综合网管HWIMS</Value>
+	  <Value name="ZX-IMGW">核心网综合网管ZXIMS</Value>
+	  <Value name="HW-COREOMU">核心网综合网管HWIMS</Value>
+	  <Value name="ZX-MMTEL">核心网综合网管ZXIMS</Value>
+	  <Value name="HW-MRFC">核心网综合网管HWIMS</Value>
+	  <Value name="HW-MRFP">核心网综合网管HWIMS</Value>
+	  <Value name="ZX-MRFP">核心网综合网管ZXIMS</Value>
+	  <Value name="HW-IOMC">核心网综合网管HWIMS</Value>
+	  <Value name="HW-OSG">核心网综合网管HWIMS</Value>
+	  <Value name="ZX-SLF">核心网综合网管ZXIMS</Value>
+	  <Value name="ZX-SSF">核心网综合网管ZXIMS</Value>
+	  <Value name="HW-IGWB">核心网综合网管HWNGN</Value>
+	  <Value name="HW-MRS">核心网综合网管HWNGN</Value>
+	  <Value name="HW-ROMC">核心网综合网管HWNGN</Value>
+	  <Value name="HW-SG">核心网综合网管HWNGN</Value>
+	  <Value name="ZX-SG">核心网综合网管ZXNGN</Value>
+	  <Value name="HW-SHLR">核心网综合网管HWNGN</Value>
+	  <Value name="ZX-SHLR">核心网综合网管ZXNGN</Value>
+	  <Value name="HW-SS">核心网综合网管HWNGN</Value>
+	  <Value name="ZX-SS">核心网综合网管ZXNGN</Value>
+	  <Value name="HW-TG">核心网综合网管HWNGN</Value>
+	  <Value name="ZX-TG">核心网综合网管ZXNGN</Value>
+	  <Value name="HW-NE40">核心网综合网管HWNGN</Value>
+	  <Value name="CC08">核心网综合网管CC08</Value>
+	  <Value name="5ESS">核心网综合网管5ESS</Value>
+	  <Value name="AXE10">核心网综合网管AXE10</Value>
+	  <Value name="DMS100">核心网综合网管DMS100</Value>
+	  <Value name="NEAX61">核心网综合网管NEAX61</Value>
+	  <Value name="SGM">核心网综合网管SGM</Value>
+	  <Value name="SP30">核心网综合网管SP30</Value>
+	  <Value name="ZX-J10">核心网综合网管ZXJ10</Value>
+	  <Value name="S1240">核心网综合网管S1240</Value>
+	  <Value name="BELLAG">核心网综合网管BELLAG</Value>
+	  <Value name="BLAG">核心网综合网管BELLAG</Value>
+	  <Value name="HW-AG">核心网综合网管HWAG</Value>
+	  <Value name="ZX-AG">核心网综合网管ZXAG</Value>
+	  <Value name="HW-V5">核心网综合网管HONET</Value>
+	  <Value name="ZX-V5">核心网综合网管ZXA10</Value>
+	  <Value name="BL-HSTP">核心网综合网管S12_HSTP</Value>
+	  <Value name="BL-CLSTP">核心网综合网管S12_LSTP</Value>
+	  <Value name="BL-LSTP">核心网综合网管S12_LSTP</Value>
+	  <Value name="HW-LSTP">核心网综合网管CC08_LSTP</Value>
+	  <Value name="YAYTH">核心网综合网管YAYTH</Value>
+	  <Value name="HW-IMS">核心网综合网管HWIMS</Value>
+	  <Value name="HWS3528">核心网综合网管HWNGN</Value>
+	  <Value name="HWS7802">核心网综合网管HWNGN</Value>
+	  <Value name="ZXJ10">核心网综合网管ZXJ10</Value>
+	  <Value name="ALHLR">核心网综合网管ALHLR</Value>
+	  <Value name="AL-OMC">核心网综合网管ALOMC</Value>
+	  <Value name="AL-FTP">核心网综合网管ALFTP</Value>
+	  <Value name="BL-AG">核心网综合网管BELLAG</Value>
+	  <Value name="ZXA10">核心网综合网管ZXA10</Value>
+	  <Value name="ZST">核心网综合网管ZST</Value>
+	  <Value name="HW-INSS">核心网综合网管HWINSS</Value>
+	  </EnumName>
+		    
+	
+</ENUM>
+

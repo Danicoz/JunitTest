@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_77"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="lib/mysql-connector-java-5.1.13-bin.jar"/>
+	<classpathentry kind="lib" path="lib/catt-utils.jar"/>
+	<classpathentry kind="lib" path="lib/inms-utility.jar"/>
+	<classpathentry kind="lib" path="lib/ojdbc6.jar"/>
+	<classpathentry kind="lib" path="lib/commons-dbutils-1.6.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j/logback-access-1.0.13.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j/logback-classic-1.0.13.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j/logback-core-1.0.13.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="lib/jdom.jar"/>
+	<classpathentry kind="lib" path="lib/xwork-core-2.1.6.jar"/>
+	<classpathentry kind="lib" path="lib/poi-3.0.2-FINAL-20080204.jar"/>
+	<classpathentry kind="lib" path="lib/logback-access-1.0.13.jar"/>
+	<classpathentry kind="lib" path="lib/logback-classic-1.0.13.jar"/>
+	<classpathentry kind="lib" path="lib/logback-core-1.0.13.jar"/>
+	<classpathentry kind="lib" path="lib/slf4j-api-1.7.12.jar"/>
+	<classpathentry kind="lib" path="lib/fastjson-1.1.41.jar"/>
+	<classpathentry kind="lib" path="lib/Json/fastjson-1.1.41.jar"/>
+	<classpathentry kind="lib" path="lib/druid-1.0.26.jar"/>
+	<classpathentry kind="lib" path="lib/ftp/commons-net-3.1.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-examples-3.17.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-3.17.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-excelant-3.17.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-ooxml-3.17.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-ooxml-schemas-3.17.jar"/>
+	<classpathentry kind="lib" path="lib/excel/poi-scratchpad-3.17.jar"/>
+	<classpathentry kind="lib" path="lib/Json/覃熙振/jackson-annotations-2.6.6.jar"/>
+	<classpathentry kind="lib" path="lib/Json/覃熙振/jackson-core-2.6.6.jar"/>
+	<classpathentry kind="lib" path="lib/Json/覃熙振/jackson-databind-2.6.6.jar"/>
+	<classpathentry kind="lib" path="lib/Json/google/gson-2.8.5.jar"/>
+	<classpathentry kind="lib" path="lib/quart/quartz-1.8.3.jar"/>
+	<classpathentry kind="lib" path="lib/jedis/commons-pool2-2.4.2.jar" sourcepath="D:/maven/repository/org/apache/commons/commons-pool2/2.4.2/commons-pool2-2.4.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jedis/jedis-2.8.0.jar" sourcepath="D:/maven/repository/redis/clients/jedis/2.8.0/jedis-2.8.0-sources.jar"/>
+	<classpathentry kind="lib" path="lib/serialize/kryo-2.21.jar"/>
+	<classpathentry kind="lib" path="lib/jedis/commons-collections-3.2.2-sources.jar"/>
+	<classpathentry kind="lib" path="lib/jedis/commons-collections-3.2.2.jar"/>
+	<classpathentry kind="lib" path="lib/code/antlr-2.7.4.jar"/>
+	<classpathentry kind="lib" path="lib/code/chardet-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/code/cpdetector_1.0.10.jar"/>
+	<classpathentry kind="lib" path="lib/code/jargs-1.0.jar"/>
+	<classpathentry kind="lib" path="lib/stringUtil/commons-lang3-3.6.jar" sourcepath="D:/maven/repository/org/apache/commons/commons-lang3/3.6/commons-lang3-3.6-sources.jar"/>
+	<classpathentry kind="lib" path="lib/stringUtil/spring-core-4.1.1.RELEASE.jar" sourcepath="D:/maven/repository/org/springframework/spring-core/4.1.1.RELEASE/spring-core-4.1.1.RELEASE-sources.jar"/>
+	<classpathentry kind="lib" path="lib/joda-time-2.9.9.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
