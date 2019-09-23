@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="serialize">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/serialize/kryo-4.0.0-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/serialize/kryo-4.0.2.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/serialize/kryo-2.21.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

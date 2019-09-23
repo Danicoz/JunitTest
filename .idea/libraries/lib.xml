@@ -1,0 +1,23 @@
+<component name="libraryTable">
+  <library name="lib">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/mysql-connector-java-5.1.13-bin.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-access-1.0.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/druid-1.0.26.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/xwork-core-2.1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/slf4j-api-1.7.12.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/inms-utility.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-classic-1.0.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/joda-time-2.9.9.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/poi-3.0.2-FINAL-20080204.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/fastjson-1.1.41.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/commons-dbutils-1.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/logback-core-1.0.13.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/catt-utils.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/ojdbc6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/jdom.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

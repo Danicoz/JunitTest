@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="excel">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/excel/poi-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/excel/poi-ooxml-schemas-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/excel/poi-ooxml-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/excel/poi-examples-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/excel/poi-excelant-3.17.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/excel/poi-scratchpad-3.17.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

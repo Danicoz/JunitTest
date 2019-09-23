@@ -14,7 +14,7 @@ import org.junit.Test;
  * 	newScheduledThreadPool：创建一个定长线程池，支持定时及周期性任务执行。
  * 	newSingleThreadExecutor：创建一个单线程化的线程池，它只会用唯一的工作线程来执行任务，保证所有任务按照指定顺序(FIFO,
  * 	LIFO, 优先级)执行。
- *
+ *new ThreadPoolExecutor(5, 5, 0L, TimeUnit.MILLISECONDS, new LinkedBlockingQueue<Runnable>());
  */
 public class ExecutorsTest {
 

@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="覃熙振">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/Json/覃熙振/jackson-annotations-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Json/覃熙振/jackson-databind-2.6.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/Json/覃熙振/jackson-core-2.6.6.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

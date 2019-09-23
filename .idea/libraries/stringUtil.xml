@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="stringUtil">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/stringUtil/spring-core-4.1.1.RELEASE-sources.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stringUtil/commons-lang3-3.6.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/stringUtil/spring-core-4.1.1.RELEASE.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>
