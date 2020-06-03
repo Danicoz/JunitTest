@@ -25,7 +25,7 @@ public class QuartTest {
 		try {
 			HashMap<String, String> map = new HashMap<String, String>();
 			map.put("plan", "plan");
-			String crontab = "0/3 * * * * ?";//一秒输出一次
+			String crontab = "0 47 14 * * ?";//一秒输出一次
 			QuartzManager.addJob("测试定时启动", new Worker(), crontab, map);
 		} catch (Exception  e) {
 			e.printStackTrace();

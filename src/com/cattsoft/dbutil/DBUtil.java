@@ -449,6 +449,28 @@ private  String str;
 		}
 	}
 
+
+//	public static List<String> queryList(Connection connection, String sql,Object params[]) throws SQLException {
+//		Connection conn = null;
+//		try {
+//			conn = getDBConn(connection);
+//			QueryRunner qRunner = new QueryRunner();
+//
+//			ResultSetHandler rsh = new ResultSetHandler() {
+//				@Override
+//				public Object handle(ResultSet rs) throws SQLException {
+//					List<String> list = new ArrayList<String>();
+//					if (rs != null && rs.next()) {
+//
+//							list.add(rs.getString(0));
+//						}
+//			};
+//			return (HashMap) qRunner.query(conn, sql, rsh, params);
+//		} finally {
+//			close(conn);
+//		}
+//	}
+
 	public static List queryHashMapList(Connection connection, String sql,
 			Object params[]) throws SQLException {
 		Connection conn = null;
@@ -577,5 +599,25 @@ private  String str;
 		}
 		return obj;
 	}
-	
+
+
+	public static List<String> getQueryLists(Connection conn, String sql) {
+		List<String> lists = new ArrayList<String>();
+		Statement stmt = null;
+		ResultSet rs = null;
+		try {
+			stmt = conn.createStatement();
+			rs = stmt.executeQuery(sql);
+
+			while(rs.next()){
+				lists.add(rs.getString(0));
+			}
+		} catch (Exception e) {
+			LOG.error("查询表结构【" + sql + "】表数据存在异常,，异常原因：" + e.getMessage(), e);
+		} finally {
+			close(conn, stmt, rs);
+		}
+		return lists;
+	}
+
 }

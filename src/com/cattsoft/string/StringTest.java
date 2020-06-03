@@ -2,6 +2,7 @@ package com.cattsoft.string;
 
 import static org.junit.Assert.*;
 
+import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -74,7 +75,15 @@ public static void main(String[] args) {
 	str[str.length-2] = "6";
 	System.out.println(str[1] + str[2]);
 	}
-	
+
+
+	@Test
+	public void test1(){
+		String str = "12,13,14";
+		Boolean flag = str.contains("123");
+		System.out.println(flag);
+	}
+
 	@Test
 	public void test() {
 		String str = "abcd.efgh.yzkl";
@@ -631,8 +640,56 @@ public static void main(String[] args) {
 		System.out.println(str.matches("onu_power_\\d{8}.txt"));
 		
 		System.out.println(StringTest.tp);
+
+		System.out.println("503405".substring(0,2));
 	
 	}
-	
+
+	@Test
+	public void testIndex(){
+
+		String columnName = "JHFHGS";
+		String str1 = columnName.substring(0, 1).toUpperCase();
+		String str2 = columnName.substring(1).toLowerCase();
+		String str3 = columnName.substring(0, 1).toUpperCase()+ columnName.substring(1).toLowerCase();
+		String str4 = str1 + str2;
+
+		System.out.println("111".contains("1"));
+
+		System.out.println( "str1=" + str1 + "str2=" + str2 + "str3=" + str3 + "str4=" +  str4);
+
+		List<String> list = new ArrayList<String>();
+		list.add("1");
+		list.add("2");
+		list.add("3");
+		list.add("5");
+
+		System.out.println(list);
+
+		if("4,5".indexOf("4")!=-1){
+			list.add(0,"4");
+		}
+		if("6".indexOf("6")!=-1){
+			list.add(0,"6");
+		}
+		System.out.println(list);
+//		if("110000".endsWith("130000")){
+//			System.out.println("500000,110000,120000".indexOf("110000"));
+//		}
+
+
+		System.out.println("1,3".contains("1,2,3"));
+	}
+
+
+	public static Object getGetMethod(Object ob , String name)throws Exception{
+		Method[] m = ob.getClass().getMethods();
+		for(int i = 0;i < m.length;i++){
+			if(("get"+name).toLowerCase().equals( m[i].getName().toLowerCase() )){
+				return m[i].invoke(ob);
+			}
+		}
+		return null;
+	}
 }
 	

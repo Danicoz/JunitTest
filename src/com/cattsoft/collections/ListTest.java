@@ -1,11 +1,15 @@
 package com.cattsoft.collections;
 
+import java.sql.Connection;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.PriorityQueue;
 import java.util.Stack;
 
+import com.cattsoft.dbutil.DBUtil;
+import com.cattsoft.dbutil.SysConstant;
 import org.junit.Test;
 
 
@@ -161,8 +165,23 @@ public class ListTest {
 					break;
 				}
 			}
-			
 		}
 	}
+
+	@Test
+	public void testList() throws SQLException {
+		String sql = "select DATE_FORMAT(DATE,'%Y-%m-%d') str from t_calendar_info where STATUS IN(0,3) order by DATE";
+		Connection conn = DBUtil.getDBConn(SysConstant.TAR_DBALIAS);
+		List<String> list = DBUtil.queryHashMapList(conn, sql,null);
+
+		System.out.println(list.get(0));
+		Integer firstNum = list.indexOf("2020-12-30");
+		Integer secondNum = list.indexOf("2020-12-31");
+		System.out.println("firstNum=" + firstNum + " secondNum=" + secondNum);
+
+	}
+
+
+
 	
 }

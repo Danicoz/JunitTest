@@ -13,6 +13,7 @@ import java.util.concurrent.CyclicBarrier;
  * 通俗的讲就是一定数量的线程在同一起点运行。
  * 核心：1、线程组内彼此相互等待，然后大家开始做某件事；
  *      2、这一代结束后开始下一代–重用思想
+ * https://blog.csdn.net/J080624/article/details/85261930
  */
 public class CyclicBarrierTest {
     private static Logger LOGGER = LoggerFactory.getLogger(CyclicBarrierTest.class);

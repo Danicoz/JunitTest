@@ -24,6 +24,9 @@ public class Worker implements Job{
 		String str = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss").format(new Date());
 		System.out.println(str);
 		System.out.println("定时任务启动：" + str);
+
+		new Worker1().work();
+		new Worker2().work();
 	}
 
 	

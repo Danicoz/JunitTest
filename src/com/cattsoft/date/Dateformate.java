@@ -191,6 +191,15 @@ public class Dateformate {
 		Date date = new Date();
 		SimpleDateFormat sf = new SimpleDateFormat("yyyy-MM-dd ahh:mm:ss");
 		//Date str = sf.parse(date);
+
+		//20200401
+		Calendar calendar = Calendar.getInstance();
+		String year = calendar.get(Calendar.YEAR) + "";//获取年份
+		String month = (calendar.get(Calendar.MONTH) + 1) + "";//获取月份
+
+		System.out.println("year = " + year + " month = " + month);
+
+
 	}
 	
 ////////////////////////////////////////////////////////////////

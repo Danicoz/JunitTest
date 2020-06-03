@@ -4,11 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import org.junit.Test;
 import org.slf4j.Logger;
@@ -22,7 +18,8 @@ public class Main {
 	public static void main(String[] args) throws SQLException {
 		Main main = new Main();
 		new Config().init_dbconns();
-		main.testExecute();
+		main.testQueryMap();
+		//main.testExecute();
 		// main.testColumnName();
 		// main.testUpdate1();
 		// main.testUpdate2();
@@ -256,6 +253,24 @@ public class Main {
 		System.out.println(obj.toString());
 		if(obj != null && !"".equals(obj)){
 			
+		}
+	}
+
+	@Test
+	public void testQueryMap() throws SQLException {
+		String sql = "select it.ITEM_CODE,it.IS_ACTIVE from BSC_DIC_CODE_TYPE tp " +
+				" left join BSC_DIC_CODE_ITEM it on it.TYPE_ID=tp.TYPE_ID " +
+				" where tp.TYPE_CODE='TJ_DATE_CONFIG' order by it.SORT_NO asc ";
+
+		Connection conn = DBUtil.getDBConn(SysConstant.SRC_DBALIAS);
+		List list = DBUtil.queryForList(conn, sql, null);
+
+		for(Object object : list){
+			Map map = (LinkedHashMap) object;
+			Set set = map.keySet();
+			for (Object key : set) {
+				System.out.println(key + ":" + map.get(key));
+			}
 		}
 	}
 }

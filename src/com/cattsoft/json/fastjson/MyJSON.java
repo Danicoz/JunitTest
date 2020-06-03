@@ -1,10 +1,8 @@
 package com.cattsoft.json.fastjson;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
+import com.google.gson.JsonObject;
 import org.junit.Test;
 
 import com.alibaba.fastjson.JSON;
@@ -189,7 +187,23 @@ public class MyJSON {
 		Map<String, Object> map1 = new HashMap<String, Object>();
 		map1.put("key1", "One");
 		map1.put("key2", "Two");
-		        
+
+		//20200211
+		JSONObject object = new JSONObject();
+		object.put("1", map1);
+		System.out.println(">>>" + object.toString() + "<<<") ;
+
+		String str = object.toJSONString();
+		JSONObject object1 = JSONObject.parseObject(str);
+		String str1 = object1.getString("1");
+		System.out.println(str1);
+
+		Map<String,String> map = (Map) object1.get("1");
+		for(String str2 : map.keySet()){
+			System.out.println(">>>" + map.get(str2));
+		}
+		////
+
 		Map<String, Object> map2 = new HashMap<String, Object>();
 		map2.put("key1", "Three");
 		map2.put("key2", "Four");
@@ -202,6 +216,9 @@ public class MyJSON {
 		
 		System.out.println(listJson1);
 		System.out.println(listJson);
+
+		//°Â¸ñ
+		//JSONArray.fromObject(maps);
 		
 	}
 	
@@ -231,6 +248,9 @@ public class MyJSON {
 		String str = JSON.toJSONString(tc, true);
 		
 		System.out.println(str);
+
+		JSONObject object = JSON.parseObject(str);
+		System.out.println(object.toString());
 		
 		try{
 			JSONObject.parse(str);
@@ -246,8 +266,10 @@ public class MyJSON {
 	
 	@Test
 	public void testJsonDate(){
-		String jsonDate = JSON.toJSONString("");
-		System.out.println(jsonDate);
+//		String jsonDate = JSON.toJSONString("");
+//		System.out.println(jsonDate);
+		String jsonStr = "{0}";
+		JSONObject.parse(jsonStr);
 
 	}
 	
