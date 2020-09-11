@@ -20,7 +20,7 @@ public class JedisPoolTest {
 	static {
 		Map<String, Object> initConfig = new HashMap<String, Object>();
 		initConfig.put("redis.Nodes",
-				"192.168.13.2:6379,172.168.63.233:6380,172.168.63.233:6381");
+				"..13.2:6379,.168.63.233:6380,.168.63.233:6381");
 		try {
 			List<HostAndPort> hostAndPort = JedisUtil
 					.getHostAndPort(initConfig);

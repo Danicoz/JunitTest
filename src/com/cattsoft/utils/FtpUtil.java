@@ -298,7 +298,7 @@ public class FtpUtil {
 	
 	public static void main(String[] args) {
 		FtpUtil ftp = new FtpUtil(new FTPClient());
-		Boolean b = ftp.ftpLogin(null, "172.168..", "21", "Danicoz", "123456");
+		Boolean b = ftp.ftpLogin(null, ".168..", "21", "Danicoz", "123456");
 		System.out.println("b=" + b);
 		
 		List<String>files = new ArrayList<String>();

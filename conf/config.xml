@@ -42,7 +42,7 @@
 	<WebService_info>
 		<!-- 建单接口 -->
 		<createResBillService name="createResBillService">
-			<url>http://192.96.1172.4:11111/DZYW_SITE_SERVICE/services/createResBillService?wsdl</url>
+			<url>http://.96..4:11111/DZYW_SITE_SERVICE/services/createResBillService?wsdl</url>
 			<namespace>http://impl.createbill.resourcesCorrection.dwf.dzywSite.app.webservice.catt.com/</namespace>
 			<method>serviceMain</method>
 			<param><![CDATA[
