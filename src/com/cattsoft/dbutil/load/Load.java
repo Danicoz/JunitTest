@@ -16,8 +16,8 @@ public class Load {
 
 		//Oracle Load方法
 		String loadSql1 = "sqlldr userid=scott/123456@localhost:1521/ORCL control=./file/T_PM_ATE_TODAY.ctl log=./file/log.log";
-		//String loadSql2 = "sqlldr userid=GS_ZYC/GS_ZYC2018@172.168.27.7:1522:1522/1522_gs control=./file/load.ctl log=C:/Users/Administrator/Desktop/log.log";
-		String loadSql3 = "sqlldr userid=TEST/TEST@172.168.27.7:1522/catt11g control=./file/insert.ctl log=C:/Users/Administrator/Desktop/log.log";
+		//String loadSql2 = "sqlldr userid=GS_ZYC/GS_ZYC2018@/ control=./file/load.ctl log=C:/Users/Administrator/Desktop/log.log";
+		String loadSql3 = "sqlldr userid=TEST/TEST@:1522/catt11g control=./file/insert.ctl log=C:/Users/Administrator/Desktop/log.log";
 
 		try {
 			LoadUtil.execuSqlldr(loadSql3);
