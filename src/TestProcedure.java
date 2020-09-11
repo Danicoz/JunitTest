@@ -20,7 +20,7 @@ public class TestProcedure {
 	@Test
 	public void test() {
 		String driverName = "com.mysql.jdbc.Driver";
-		String dbURL = "jdbc:mysql://172.168.10.7:3306/test_liuyongjian";
+		String dbURL = "jdbc:mysql://176/test_liuyongjian";
 		String userName ="develop";
 		String pwd = "develop";
 		Connection conn = null;
@@ -49,11 +49,11 @@ public class TestProcedure {
 				
 				pstm.executeUpdate();
 				
-				System.out.println("连接成功");
+				System.out.println("锟斤拷锟接成癸拷");
 				//CallableStatement c = (CallableStatement) conn.prepareCall("{call SP_THREE2BIG()}");
 				//System.out.println(c);
 				//c.execute();
-				System.out.println("调用存储过程成功");
+				System.out.println("锟斤拷锟矫存储锟斤拷锟教成癸拷");
 				conn.close();
 			} catch (Exception e) {
 				// TODO Auto-generated catch block

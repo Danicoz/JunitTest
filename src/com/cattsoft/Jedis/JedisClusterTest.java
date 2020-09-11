@@ -17,13 +17,13 @@ public class JedisClusterTest {
 	private static JedisCluster jedis = null;
 	static {
 		Map<String, Object> initConfig = new HashMap<String, Object>();
-		initConfig.put("redis.Nodes", "192.168.13.2:6379,172.168.63.233:6380,172.168.63.233:6381");
+		initConfig.put("redis.Nodes", ".168..2:6379,.168.63.:6380,..63.:6381");
 		try {
 			List<HostAndPort> hostAndPort = JedisUtil
 					.getHostAndPort(initConfig);
 			if (hostAndPort.isEmpty()) {
 
-				throw new Exception("ÎÞ·¨½âÎö»º´æ½ÚµãÅäÖÃ¡£");
+				throw new Exception("ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Ã¡ï¿½");
 			}
 			GenericObjectPoolConfig objPoolConfig = JedisUtil.getObjectPoolConfig(initConfig);
 			jedis = new JedisUtil(initConfig, hostAndPort, objPoolConfig).getJedisCluster();
@@ -35,171 +35,171 @@ public class JedisClusterTest {
 	
 	
 	/**
-     * ²âÊÔkey:valueÊý¾Ý
-     * ¼¯ÈºÖÐflushDB¡¢keys·ÏÆú
+     * ï¿½ï¿½ï¿½ï¿½key:valueï¿½ï¿½ï¿½ï¿½
+     * ï¿½ï¿½Èºï¿½ï¿½flushDBï¿½ï¿½keysï¿½ï¿½ï¿½ï¿½
      */
     @Test
     public void testKey() throws InterruptedException {
-        //System.out.println("Çå¿ÕÊý¾Ý£º"+jedis.flushDB());
-        System.out.println("ÅÐ¶ÏÄ³¸ö¼üÊÇ·ñ´æÔÚ£º"+jedis.exists("username"));
-        System.out.println("ÐÂÔö<'username','wukong'>µÄ¼üÖµ¶Ô£º"+jedis.set("username", "xiaohai"));
-        System.out.println("ÊÇ·ñ´æÔÚ:"+jedis.exists("username"));
-        System.out.println("ÐÂÔö<'password','password'>µÄ¼üÖµ¶Ô£º"+jedis.set("password", "123456"));
+        //System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.flushDB());
+        System.out.println("ï¿½Ð¶ï¿½Ä³ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½Ú£ï¿½"+jedis.exists("username"));
+        System.out.println("ï¿½ï¿½ï¿½ï¿½<'username','wukong'>ï¿½Ä¼ï¿½Öµï¿½Ô£ï¿½"+jedis.set("username", "xiaohai"));
+        System.out.println("ï¿½Ç·ï¿½ï¿½ï¿½ï¿½:"+jedis.exists("username"));
+        System.out.println("ï¿½ï¿½ï¿½ï¿½<'password','password'>ï¿½Ä¼ï¿½Öµï¿½Ô£ï¿½"+jedis.set("password", "123456"));
         //Set<String> keys = jedis.keys("*");
-        // System.out.println("ÏµÍ³ÖÐËùÓÐµÄ¼üÈçÏÂ£º"+keys);
-        System.out.println("É¾³ý¼üpassword:"+jedis.del("password"));
-        System.out.println("ÅÐ¶Ï¼üpasswordÊÇ·ñ´æÔÚ£º"+jedis.exists("password"));
-        System.out.println("ÉèÖÃ¼üusernameµÄ¹ýÆÚÊ±¼äÎª10s:"+jedis.expire("username", 10));
-        TimeUnit.SECONDS.sleep(2); // Ïß³ÌË¯Ãß2ÃëSystem.out.println("²é¿´¼üusernameµÄÊ£ÓàÉú´æÊ±¼ä£º"+jedis.ttl("username"));
-        System.out.println("²é¿´¼üusernameµÄÊ£ÓàÉú´æÊ±¼ä£º"+jedis.ttl("username"));
-        System.out.println("ÒÆ³ý¼üusernameµÄÉú´æÊ±¼ä£º"+jedis.persist("username"));
-        System.out.println("²é¿´¼üusernameµÄÊ£ÓàÉú´æÊ±¼ä£º"+jedis.ttl("username"));
-        System.out.println("²é¿´¼üusernameËù´æ´¢µÄÖµµÄÀàÐÍ£º"+jedis.type("username"));
+        // System.out.println("ÏµÍ³ï¿½ï¿½ï¿½ï¿½ï¿½ÐµÄ¼ï¿½ï¿½ï¿½ï¿½Â£ï¿½"+keys);
+        System.out.println("É¾ï¿½ï¿½ï¿½ï¿½password:"+jedis.del("password"));
+        System.out.println("ï¿½Ð¶Ï¼ï¿½passwordï¿½Ç·ï¿½ï¿½ï¿½Ú£ï¿½"+jedis.exists("password"));
+        System.out.println("ï¿½ï¿½ï¿½Ã¼ï¿½usernameï¿½Ä¹ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Îª10s:"+jedis.expire("username", 10));
+        TimeUnit.SECONDS.sleep(2); // ï¿½ß³ï¿½Ë¯ï¿½ï¿½2ï¿½ï¿½System.out.println("ï¿½é¿´ï¿½ï¿½usernameï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º"+jedis.ttl("username"));
+        System.out.println("ï¿½é¿´ï¿½ï¿½usernameï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º"+jedis.ttl("username"));
+        System.out.println("ï¿½Æ³ï¿½ï¿½ï¿½usernameï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º"+jedis.persist("username"));
+        System.out.println("ï¿½é¿´ï¿½ï¿½usernameï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ä£º"+jedis.ttl("username"));
+        System.out.println("ï¿½é¿´ï¿½ï¿½usernameï¿½ï¿½ï¿½æ´¢ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½Í£ï¿½"+jedis.type("username"));
     }
 
     /***
-     * ×Ö·û´®²Ù×÷
-     * memcachedºÍredisÍ¬ÑùÓÐappendµÄ²Ù×÷£¬µ«ÊÇmemcachedÓÐprependµÄ²Ù×÷£¬redisÖÐ²¢Ã»ÓÐ¡£
-     * ¼¯ÈºÖÐflushDB¡¢keys¡¢del(¶à¸öÖµ)¡¢mset(¶à¸öÖµ)·ÏÆú
+     * ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+     * memcachedï¿½ï¿½redisÍ¬ï¿½ï¿½ï¿½ï¿½appendï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½memcachedï¿½ï¿½prependï¿½Ä²ï¿½ï¿½ï¿½ï¿½ï¿½redisï¿½Ð²ï¿½Ã»ï¿½Ð¡ï¿½
+     * ï¿½ï¿½Èºï¿½ï¿½flushDBï¿½ï¿½keysï¿½ï¿½del(ï¿½ï¿½ï¿½Öµ)ï¿½ï¿½mset(ï¿½ï¿½ï¿½Öµ)ï¿½ï¿½ï¿½ï¿½
      * @throws InterruptedException
      */
     @Test
     public void testString() throws InterruptedException {
         //jedis.flushDB();
-        System.out.println("===========Ôö¼ÓÊý¾Ý===========");
+        System.out.println("===========ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½===========");
         System.out.println(jedis.set("key1","value1"));
         System.out.println(jedis.set("key2","value2"));
         System.out.println(jedis.set("key3", "value3"));
-        System.out.println("É¾³ý¼ükey2:"+jedis.del("key2"));
-        System.out.println("»ñÈ¡¼ükey2:"+jedis.get("key2"));
-        System.out.println("ÐÞ¸Äkey1:"+jedis.set("key1", "value1Changed"));
-        System.out.println("»ñÈ¡key1µÄÖµ£º"+jedis.get("key1"));
-        System.out.println("ÔÚkey3ºóÃæ¼ÓÈëÖµ£º"+jedis.append("key3", "End"));
-        System.out.println("key3µÄÖµ£º"+jedis.get("key3"));
-        //ÃüÁîµÄÊ±ºò²Å»áÈ¥Á¬½ÓÁ¬½Ó£¬¼¯ÈºÖÐÁ¬½ÓÊÇ¶ÔÒ»¸ö½ÚµãÁ¬½Ó£¬²»ÄÜÅÐ¶Ï¶à¸ökey¾­¹ýcrc16Ëã·¨Ëù¶ÔÓ¦µÄ²ÛÔÚÒ»¸ö½ÚµãÉÏ£¬²»Ö§³Ö¶àkey»ñÈ¡¡¢É¾³ý
-        //System.out.println("Ôö¼Ó¶à¸ö¼üÖµ¶Ô£º"+jedis.mset("key01","value01","key02","value02"));
-        //System.out.println("»ñÈ¡¶à¸ö¼üÖµ¶Ô£º"+jedis.mget("key01","key02","key03"));
-        //System.out.println("»ñÈ¡¶à¸ö¼üÖµ¶Ô£º"+jedis.mget("key01","key02","key03","key04"));
-        //System.out.println("É¾³ý¶à¸ö¼üÖµ¶Ô£º"+jedis.del(new String[]{"key01","key02"}));
-        //System.out.println("»ñÈ¡¶à¸ö¼üÖµ¶Ô£º"+jedis.mget("key01","key02","key03"));
+        System.out.println("É¾ï¿½ï¿½ï¿½ï¿½key2:"+jedis.del("key2"));
+        System.out.println("ï¿½ï¿½È¡ï¿½ï¿½key2:"+jedis.get("key2"));
+        System.out.println("ï¿½Þ¸ï¿½key1:"+jedis.set("key1", "value1Changed"));
+        System.out.println("ï¿½ï¿½È¡key1ï¿½ï¿½Öµï¿½ï¿½"+jedis.get("key1"));
+        System.out.println("ï¿½ï¿½key3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½"+jedis.append("key3", "End"));
+        System.out.println("key3ï¿½ï¿½Öµï¿½ï¿½"+jedis.get("key3"));
+        //ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½Å»ï¿½È¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½Èºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç¶ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï¶ï¿½ï¿½keyï¿½ï¿½ï¿½ï¿½crc16ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ä²ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úµï¿½ï¿½Ï£ï¿½ï¿½ï¿½Ö§ï¿½Ö¶ï¿½keyï¿½ï¿½È¡ï¿½ï¿½É¾ï¿½ï¿½
+        //System.out.println("ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½Öµï¿½Ô£ï¿½"+jedis.mset("key01","value01","key02","value02"));
+        //System.out.println("ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ô£ï¿½"+jedis.mget("key01","key02","key03"));
+        //System.out.println("ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ô£ï¿½"+jedis.mget("key01","key02","key03","key04"));
+        //System.out.println("É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ô£ï¿½"+jedis.del(new String[]{"key01","key02"}));
+        //System.out.println("ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ô£ï¿½"+jedis.mget("key01","key02","key03"));
 
         //jedis.flushDB();
-        System.out.println("===========ÐÂÔö¼üÖµ¶Ô·ÀÖ¹¸²¸ÇÔ­ÏÈÖµ==============");
+        System.out.println("===========ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ô·ï¿½Ö¹ï¿½ï¿½ï¿½ï¿½Ô­ï¿½ï¿½Öµ==============");
         System.out.println(jedis.setnx("key1", "value1"));
         System.out.println(jedis.setnx("key2", "value2"));
         System.out.println(jedis.setnx("key2", "value2-new"));
         System.out.println(jedis.get("key1"));
         System.out.println(jedis.get("key2"));
 
-        System.out.println("===========ÐÂÔö¼üÖµ¶Ô²¢ÉèÖÃÓÐÐ§Ê±¼ä=============");
+        System.out.println("===========ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½Ô²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð§Ê±ï¿½ï¿½=============");
         System.out.println(jedis.setex("key3", 2, "value3"));
         System.out.println(jedis.get("key3"));
         TimeUnit.SECONDS.sleep(3);
         System.out.println(jedis.get("key3"));
 
-        System.out.println("===========»ñÈ¡Ô­Öµ£¬¸üÐÂÎªÐÂÖµ==========");//GETSET is an atomic set this value and return the old value command.
+        System.out.println("===========ï¿½ï¿½È¡Ô­Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½Öµ==========");//GETSET is an atomic set this value and return the old value command.
         System.out.println(jedis.getSet("key2", "key2GetSet"));
         System.out.println(jedis.get("key2"));
-        System.out.println("»ñµÃkey2µÄÖµµÄ×Ö´®£º"+jedis.getrange("key2", 2, 4)); // Ïàµ±½ØÈ¡×Ö·û´®µÄµÚ¶þ¸öÎ»ÖÃ-µÚËÄ¸öÎ»ÖÃµÄ×Ö·û´®
+        System.out.println("ï¿½ï¿½ï¿½key2ï¿½ï¿½Öµï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½"+jedis.getrange("key2", 2, 4)); // ï¿½àµ±ï¿½ï¿½È¡ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ÄµÚ¶ï¿½ï¿½ï¿½Î»ï¿½ï¿½-ï¿½ï¿½ï¿½Ä¸ï¿½Î»ï¿½Ãµï¿½ï¿½Ö·ï¿½ï¿½ï¿½
     }
 
     /***
-     * ÕûÊýºÍ¸¡µãÊý
+     * ï¿½ï¿½ï¿½ï¿½ï¿½Í¸ï¿½ï¿½ï¿½ï¿½ï¿½
      */
     @Test
     public void testNumber() {
         jedis.set("key1", "1");
         jedis.set("key2", "2");
         jedis.set("key3", "2.3");
-        System.out.println("key1µÄÖµ£º"+jedis.get("key1"));
-        System.out.println("key2µÄÖµ£º"+jedis.get("key2"));
-        System.out.println("key1µÄÖµ¼Ó1£º"+jedis.incr("key1"));
-        System.out.println("»ñÈ¡key1µÄÖµ£º"+jedis.get("key1"));
-        System.out.println("key2µÄÖµ¼õ1£º"+jedis.decr("key2"));
-        System.out.println("»ñÈ¡key2µÄÖµ£º"+jedis.get("key2"));
-        System.out.println("½«key1µÄÖµ¼ÓÉÏÕûÊý5£º"+jedis.incrBy("key1", 5));
-        System.out.println("»ñÈ¡key1µÄÖµ£º"+jedis.get("key1"));
-        System.out.println("½«key2µÄÖµ¼õÈ¥ÕûÊý5£º"+jedis.decrBy("key2", 5));
-        System.out.println("»ñÈ¡key2µÄÖµ£º"+jedis.get("key2"));
-        System.out.println("key3µÄÖµ£º"+jedis.get("key3"));
-        // ÕâÀï»á±¨´í£¬ÒòÎªkey3²»ÊÇÕûÊý²»ÄÜ×ö¼ÆËã:redis.clients.jedis.exceptions.JedisDataException: ERR value is not an integer or out of range
-        // System.out.println("key2µÄÖµ¼õ1£º"+jedis.decr("key3"));
+        System.out.println("key1ï¿½ï¿½Öµï¿½ï¿½"+jedis.get("key1"));
+        System.out.println("key2ï¿½ï¿½Öµï¿½ï¿½"+jedis.get("key2"));
+        System.out.println("key1ï¿½ï¿½Öµï¿½ï¿½1ï¿½ï¿½"+jedis.incr("key1"));
+        System.out.println("ï¿½ï¿½È¡key1ï¿½ï¿½Öµï¿½ï¿½"+jedis.get("key1"));
+        System.out.println("key2ï¿½ï¿½Öµï¿½ï¿½1ï¿½ï¿½"+jedis.decr("key2"));
+        System.out.println("ï¿½ï¿½È¡key2ï¿½ï¿½Öµï¿½ï¿½"+jedis.get("key2"));
+        System.out.println("ï¿½ï¿½key1ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½"+jedis.incrBy("key1", 5));
+        System.out.println("ï¿½ï¿½È¡key1ï¿½ï¿½Öµï¿½ï¿½"+jedis.get("key1"));
+        System.out.println("ï¿½ï¿½key2ï¿½ï¿½Öµï¿½ï¿½È¥ï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½"+jedis.decrBy("key2", 5));
+        System.out.println("ï¿½ï¿½È¡key2ï¿½ï¿½Öµï¿½ï¿½"+jedis.get("key2"));
+        System.out.println("key3ï¿½ï¿½Öµï¿½ï¿½"+jedis.get("key3"));
+        // ï¿½ï¿½ï¿½ï¿½á±¨ï¿½ï¿½ï¿½ï¿½Îªkey3ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½:redis.clients.jedis.exceptions.JedisDataException: ERR value is not an integer or out of range
+        // System.out.println("key2ï¿½ï¿½Öµï¿½ï¿½1ï¿½ï¿½"+jedis.decr("key3"));
     }
 
     /***
-     * ÁÐ±í
+     * ï¿½Ð±ï¿½
      */
     @Test
     public void testList() {
-        System.out.println("===========Ìí¼ÓÒ»¸ölist===========");
+        System.out.println("===========ï¿½ï¿½ï¿½Ò»ï¿½ï¿½list===========");
         jedis.lpush("collections", "ArrayList", "Vector", "Stack", "HashMap", "WeakHashMap", "LinkedHashMap");
-        jedis.lpush("collections", "HashSet"); // µþ¼Ó
-        jedis.lpush("collections", "TreeSet"); // µþ¼Ó
-        jedis.lpush("collections", "TreeMap"); // µþ¼Ó
-        System.out.println("collectionsµÄÄÚÈÝ£º"+jedis.lrange("collections", 0, -1));//-1´ú±íµ¹ÊýµÚÒ»¸öÔªËØ£¬-2´ú±íµ¹ÊýµÚ¶þ¸öÔªËØ
-        System.out.println("collectionsÇø¼ä0-3µÄÔªËØ£º"+jedis.lrange("collections",0,3)); // Ç°Ãæ4¸öÖµ
+        jedis.lpush("collections", "HashSet"); // ï¿½ï¿½ï¿½ï¿½
+        jedis.lpush("collections", "TreeSet"); // ï¿½ï¿½ï¿½ï¿½
+        jedis.lpush("collections", "TreeMap"); // ï¿½ï¿½ï¿½ï¿½
+        System.out.println("collectionsï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.lrange("collections", 0, -1));//-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½Ø£ï¿½-2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½Ôªï¿½ï¿½
+        System.out.println("collectionsï¿½ï¿½ï¿½ï¿½0-3ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.lrange("collections",0,3)); // Ç°ï¿½ï¿½4ï¿½ï¿½Öµ
         System.out.println("===============================");
-        // É¾³ýÁÐ±íÖ¸¶¨µÄÖµ £¬µÚ¶þ¸ö²ÎÊýÎªÉ¾³ýµÄ¸öÊý£¨ÓÐÖØ¸´Ê±£©£¬ºóadd½øÈ¥µÄÖµÏÈ±»É¾£¬ÀàËÆÓÚ³öÕ»
-        System.out.println("É¾³ýÖ¸¶¨ÔªËØ¸öÊý£º"+jedis.lrem("collections", 2, "HashMap"));
-        System.out.println("collectionsµÄÄÚÈÝ£º"+jedis.lrange("collections", 0, -1));
-        System.out.println("É¾³ýÏÂ±í0-3Çø¼äÖ®ÍâµÄÔªËØ£º"+jedis.ltrim("collections", 0, 3));
-        System.out.println("collectionsµÄÄÚÈÝ£º"+jedis.lrange("collections", 0, -1));
-        System.out.println("collectionsÁÐ±í³öÕ»£¨×ó¶Ë£©£º"+jedis.lpop("collections"));
-        System.out.println("collectionsµÄÄÚÈÝ£º"+jedis.lrange("collections", 0, -1));
-        System.out.println("collectionsÌí¼ÓÔªËØ£¬´ÓÁÐ±íÓÒ¶Ë£¬ÓëlpushÏà¶ÔÓ¦£º"+jedis.rpush("collections", "EnumMap"));
-        System.out.println("collectionsµÄÄÚÈÝ£º"+jedis.lrange("collections", 0, -1));
-        System.out.println("collectionsÁÐ±í³öÕ»£¨ÓÒ¶Ë£©£º"+jedis.rpop("collections"));
-        System.out.println("collectionsµÄÄÚÈÝ£º"+jedis.lrange("collections", 0, -1));
-        System.out.println("ÐÞ¸ÄcollectionsÖ¸¶¨ÏÂ±ê1µÄÄÚÈÝ£º"+jedis.lset("collections", 1, "LinkedArrayList"));
-        System.out.println("collectionsµÄÄÚÈÝ£º"+jedis.lrange("collections", 0, -1));
+        // É¾ï¿½ï¿½ï¿½Ð±ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½Öµ ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÉ¾ï¿½ï¿½ï¿½Ä¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ø¸ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½addï¿½ï¿½È¥ï¿½ï¿½Öµï¿½È±ï¿½É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú³ï¿½Õ»
+        System.out.println("É¾ï¿½ï¿½Ö¸ï¿½ï¿½Ôªï¿½Ø¸ï¿½ï¿½ï¿½ï¿½ï¿½"+jedis.lrem("collections", 2, "HashMap"));
+        System.out.println("collectionsï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.lrange("collections", 0, -1));
+        System.out.println("É¾ï¿½ï¿½ï¿½Â±ï¿½0-3ï¿½ï¿½ï¿½ï¿½Ö®ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.ltrim("collections", 0, 3));
+        System.out.println("collectionsï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.lrange("collections", 0, -1));
+        System.out.println("collectionsï¿½Ð±ï¿½ï¿½Õ»ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½"+jedis.lpop("collections"));
+        System.out.println("collectionsï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.lrange("collections", 0, -1));
+        System.out.println("collectionsï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½Ò¶Ë£ï¿½ï¿½ï¿½lpushï¿½ï¿½ï¿½Ó¦ï¿½ï¿½"+jedis.rpush("collections", "EnumMap"));
+        System.out.println("collectionsï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.lrange("collections", 0, -1));
+        System.out.println("collectionsï¿½Ð±ï¿½ï¿½Õ»ï¿½ï¿½ï¿½Ò¶Ë£ï¿½ï¿½ï¿½"+jedis.rpop("collections"));
+        System.out.println("collectionsï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.lrange("collections", 0, -1));
+        System.out.println("ï¿½Þ¸ï¿½collectionsÖ¸ï¿½ï¿½ï¿½Â±ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.lset("collections", 1, "LinkedArrayList"));
+        System.out.println("collectionsï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.lrange("collections", 0, -1));
         System.out.println("===============================");
-        System.out.println("collectionsµÄ³¤¶È£º"+jedis.llen("collections"));
-        System.out.println("»ñÈ¡collectionsÏÂ±êÎª2µÄÔªËØ£º"+jedis.lindex("collections", 2));
+        System.out.println("collectionsï¿½Ä³ï¿½ï¿½È£ï¿½"+jedis.llen("collections"));
+        System.out.println("ï¿½ï¿½È¡collectionsï¿½Â±ï¿½Îª2ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.lindex("collections", 2));
         System.out.println("===============================");
         jedis.lpush("sortedList", "3","6","2","0","7","4");
-        System.out.println("sortedListÅÅÐòÇ°£º"+jedis.lrange("sortedList", 0, -1));
+        System.out.println("sortedListï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½"+jedis.lrange("sortedList", 0, -1));
         System.out.println(jedis.sort("sortedList"));
-        System.out.println("sortedListÅÅÐòºó£º"+jedis.lrange("sortedList", 0, -1));
+        System.out.println("sortedListï¿½ï¿½ï¿½ï¿½ï¿½"+jedis.lrange("sortedList", 0, -1));
     }
 
     /***
-     * set¼¯ºÏ
+     * setï¿½ï¿½ï¿½ï¿½
      */
     @Test
     public void testSet() {
-        System.out.println("============Ïò¼¯ºÏÖÐÌí¼ÓÔªËØ============");
+        System.out.println("============ï¿½ò¼¯ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½============");
         System.out.println(jedis.sadd("eleSet", "e1","e2","e4","e3","e0","e8","e7","e5"));
         System.out.println(jedis.sadd("eleSet", "e6"));
-        System.out.println(jedis.sadd("eleSet", "e6")); // ·µ»Ø0£¬¼¯ºÏÖÐÒÑ¾­´æÔÚ
-        System.out.println("eleSetµÄËùÓÐÔªËØÎª£º"+jedis.smembers("eleSet"));
-        System.out.println("É¾³ýÒ»¸öÔªËØe0£º"+jedis.srem("eleSet", "e0"));
-        System.out.println("eleSetµÄËùÓÐÔªËØÎª£º"+jedis.smembers("eleSet"));
-        System.out.println("É¾³ýÁ½¸öÔªËØe7ºÍe6£º"+jedis.srem("eleSet", "e7","e6"));
-        System.out.println("eleSetµÄËùÓÐÔªËØÎª£º"+jedis.smembers("eleSet"));
-        System.out.println("Ëæ»úµÄÒÆ³ý¼¯ºÏÖÐµÄÒ»¸öÔªËØ£º"+jedis.spop("eleSet"));
-        System.out.println("Ëæ»úµÄÒÆ³ý¼¯ºÏÖÐµÄÒ»¸öÔªËØ£º"+jedis.spop("eleSet"));
-        System.out.println("eleSetµÄËùÓÐÔªËØÎª£º"+jedis.smembers("eleSet"));
-        System.out.println("eleSetÖÐ°üº¬ÔªËØµÄ¸öÊý£º"+jedis.scard("eleSet"));
-        System.out.println("e3ÊÇ·ñÔÚeleSetÖÐ£º"+jedis.sismember("eleSet", "e3"));
-        System.out.println("e1ÊÇ·ñÔÚeleSetÖÐ£º"+jedis.sismember("eleSet", "e1"));
-        System.out.println("e5ÊÇ·ñÔÚeleSetÖÐ£º"+jedis.sismember("eleSet", "e5"));
+        System.out.println(jedis.sadd("eleSet", "e6")); // ï¿½ï¿½ï¿½ï¿½0ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½
+        System.out.println("eleSetï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Îªï¿½ï¿½"+jedis.smembers("eleSet"));
+        System.out.println("É¾ï¿½ï¿½Ò»ï¿½ï¿½Ôªï¿½ï¿½e0ï¿½ï¿½"+jedis.srem("eleSet", "e0"));
+        System.out.println("eleSetï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Îªï¿½ï¿½"+jedis.smembers("eleSet"));
+        System.out.println("É¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½e7ï¿½ï¿½e6ï¿½ï¿½"+jedis.srem("eleSet", "e7","e6"));
+        System.out.println("eleSetï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Îªï¿½ï¿½"+jedis.smembers("eleSet"));
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ò»ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.spop("eleSet"));
+        System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½Ò»ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.spop("eleSet"));
+        System.out.println("eleSetï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½ï¿½Îªï¿½ï¿½"+jedis.smembers("eleSet"));
+        System.out.println("eleSetï¿½Ð°ï¿½ï¿½ï¿½Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½ï¿½ï¿½"+jedis.scard("eleSet"));
+        System.out.println("e3ï¿½Ç·ï¿½ï¿½ï¿½eleSetï¿½Ð£ï¿½"+jedis.sismember("eleSet", "e3"));
+        System.out.println("e1ï¿½Ç·ï¿½ï¿½ï¿½eleSetï¿½Ð£ï¿½"+jedis.sismember("eleSet", "e1"));
+        System.out.println("e5ï¿½Ç·ï¿½ï¿½ï¿½eleSetï¿½Ð£ï¿½"+jedis.sismember("eleSet", "e5"));
 
-        // ¼¯ÈºÏÂ²¢´æ»á±¨´í£ºredis.clients.jedis.exceptions.JedisClusterException: No way to dispatch this command to Redis Cluster because keys have different slots.
-        // Redis¼¯Èº£¬´Ókey1¼¯ºÏÓëkey2¼¯ºÏ²¢´æ¡¢½»¼¯¡¢²î¼¯£¬Á½¸ö¼ü¾­¹ýcrc16Ëã·¨¿ÉÄÜÓÐ²»Í¬µÄ²Û¡£
+        // ï¿½ï¿½Èºï¿½Â²ï¿½ï¿½ï¿½á±¨ï¿½ï¿½redis.clients.jedis.exceptions.JedisClusterException: No way to dispatch this command to Redis Cluster because keys have different slots.
+        // Redisï¿½ï¿½Èºï¿½ï¿½ï¿½ï¿½key1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½key2ï¿½ï¿½ï¿½Ï²ï¿½ï¿½æ¡¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î¼¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½crc16ï¿½ã·¨ï¿½ï¿½ï¿½ï¿½ï¿½Ð²ï¿½Í¬ï¿½Ä²Û¡ï¿½
         /*System.out.println("=================================");
         System.out.println(jedis.sadd("eleSet1", "e1","e2","e4","e3","e0","e8","e7","e5"));
         System.out.println(jedis.sadd("eleSet2", "e1","e2","e4","e3","e0","e8"));
-        System.out.println("½«eleSet1ÖÐÉ¾³ýe1²¢´æÈëeleSet3ÖÐ£º"+jedis.smove("eleSet1", "eleSet3", "e1"));
-        System.out.println("½«eleSet1ÖÐÉ¾³ýe2²¢´æÈëeleSet3ÖÐ£º"+jedis.smove("eleSet1", "eleSet3", "e2"));
-        System.out.println("eleSet1ÖÐµÄÔªËØ£º"+jedis.smembers("eleSet1"));
-        System.out.println("eleSet3ÖÐµÄÔªËØ£º"+jedis.smembers("eleSet3"));*/
+        System.out.println("ï¿½ï¿½eleSet1ï¿½ï¿½É¾ï¿½ï¿½e1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eleSet3ï¿½Ð£ï¿½"+jedis.smove("eleSet1", "eleSet3", "e1"));
+        System.out.println("ï¿½ï¿½eleSet1ï¿½ï¿½É¾ï¿½ï¿½e2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½eleSet3ï¿½Ð£ï¿½"+jedis.smove("eleSet1", "eleSet3", "e2"));
+        System.out.println("eleSet1ï¿½Ðµï¿½Ôªï¿½Ø£ï¿½"+jedis.smembers("eleSet1"));
+        System.out.println("eleSet3ï¿½Ðµï¿½Ôªï¿½Ø£ï¿½"+jedis.smembers("eleSet3"));*/
 
-        /*System.out.println("============¼¯ºÏÔËËã=================");
-        System.out.println("eleSet1ÖÐµÄÔªËØ£º"+jedis.smembers("eleSet1"));
-        System.out.println("eleSet2ÖÐµÄÔªËØ£º"+jedis.smembers("eleSet2"));
-        System.out.println("eleSet1ºÍeleSet2µÄ½»¼¯:"+jedis.sinter("eleSet1","eleSet2"));
-        System.out.println("eleSet1ºÍeleSet2µÄ²¢¼¯:"+jedis.sunion("eleSet1","eleSet2"));
-        System.out.println("eleSet1ºÍeleSet2µÄ²î¼¯:"+jedis.sdiff("eleSet1","eleSet2"));*/
+        /*System.out.println("============ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½=================");
+        System.out.println("eleSet1ï¿½Ðµï¿½Ôªï¿½Ø£ï¿½"+jedis.smembers("eleSet1"));
+        System.out.println("eleSet2ï¿½Ðµï¿½Ôªï¿½Ø£ï¿½"+jedis.smembers("eleSet2"));
+        System.out.println("eleSet1ï¿½ï¿½eleSet2ï¿½Ä½ï¿½ï¿½ï¿½:"+jedis.sinter("eleSet1","eleSet2"));
+        System.out.println("eleSet1ï¿½ï¿½eleSet2ï¿½Ä²ï¿½ï¿½ï¿½:"+jedis.sunion("eleSet1","eleSet2"));
+        System.out.println("eleSet1ï¿½ï¿½eleSet2ï¿½Ä²î¼¯:"+jedis.sdiff("eleSet1","eleSet2"));*/
         jedis.del("eleSet");
         jedis.del("eleSet1");
         jedis.del("eleSet2");
@@ -207,7 +207,7 @@ public class JedisClusterTest {
     }
 
     /***
-     * É¢ÁÐ
+     * É¢ï¿½ï¿½
      */
     @Test
     public void testHash() {
@@ -218,24 +218,24 @@ public class JedisClusterTest {
         map.put("key4","value4");
         jedis.hmset("hash",map);
         jedis.hset("hash", "key5", "value5");
-        System.out.println("É¢ÁÐhashµÄËùÓÐ¼üÖµ¶ÔÎª£º"+jedis.hgetAll("hash"));//return Map<String,String>
-        System.out.println("É¢ÁÐhashµÄËùÓÐ¼üÎª£º"+jedis.hkeys("hash"));//return Set<String>
-        System.out.println("É¢ÁÐhashµÄËùÓÐÖµÎª£º"+jedis.hvals("hash"));//return List<String>
-        System.out.println("½«key6±£´æµÄÖµ¼ÓÉÏÒ»¸öÕûÊý£¬Èç¹ûkey6²»´æÔÚÔòÌí¼Ókey6£º"+jedis.hincrBy("hash", "key6", 6));
-        System.out.println("É¢ÁÐhashµÄËùÓÐ¼üÖµ¶ÔÎª£º"+jedis.hgetAll("hash"));
-        System.out.println("½«key6±£´æµÄÖµ¼ÓÉÏÒ»¸öÕûÊý£¬Èç¹ûkey6²»´æÔÚÔòÌí¼Ókey6£º"+jedis.hincrBy("hash", "key6", 3));
-        System.out.println("É¢ÁÐhashµÄËùÓÐ¼üÖµ¶ÔÎª£º"+jedis.hgetAll("hash"));
-        System.out.println("É¾³ýÒ»¸ö»òÕß¶à¸ö¼üÖµ¶Ô£º"+jedis.hdel("hash", "key2"));
-        System.out.println("É¢ÁÐhashµÄËùÓÐ¼üÖµ¶ÔÎª£º"+jedis.hgetAll("hash"));
-        System.out.println("É¢ÁÐhashÖÐ¼üÖµ¶ÔµÄ¸öÊý£º"+jedis.hlen("hash"));
-        System.out.println("ÅÐ¶ÏhashÖÐÊÇ·ñ´æÔÚkey2£º"+jedis.hexists("hash","key2"));
-        System.out.println("ÅÐ¶ÏhashÖÐÊÇ·ñ´æÔÚkey3£º"+jedis.hexists("hash","key3"));
-        System.out.println("»ñÈ¡hashÖÐµÄÖµ£º"+jedis.hmget("hash","key3"));
-        System.out.println("»ñÈ¡hashÖÐµÄÖµ£º"+jedis.hmget("hash","key3","key4"));
+        System.out.println("É¢ï¿½ï¿½hashï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Öµï¿½ï¿½Îªï¿½ï¿½"+jedis.hgetAll("hash"));//return Map<String,String>
+        System.out.println("É¢ï¿½ï¿½hashï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Îªï¿½ï¿½"+jedis.hkeys("hash"));//return Set<String>
+        System.out.println("É¢ï¿½ï¿½hashï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÖµÎªï¿½ï¿½"+jedis.hvals("hash"));//return List<String>
+        System.out.println("ï¿½ï¿½key6ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½key6ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½key6ï¿½ï¿½"+jedis.hincrBy("hash", "key6", 6));
+        System.out.println("É¢ï¿½ï¿½hashï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Öµï¿½ï¿½Îªï¿½ï¿½"+jedis.hgetAll("hash"));
+        System.out.println("ï¿½ï¿½key6ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½key6ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½key6ï¿½ï¿½"+jedis.hincrBy("hash", "key6", 3));
+        System.out.println("É¢ï¿½ï¿½hashï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Öµï¿½ï¿½Îªï¿½ï¿½"+jedis.hgetAll("hash"));
+        System.out.println("É¾ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ß¶ï¿½ï¿½ï¿½ï¿½Öµï¿½Ô£ï¿½"+jedis.hdel("hash", "key2"));
+        System.out.println("É¢ï¿½ï¿½hashï¿½ï¿½ï¿½ï¿½ï¿½Ð¼ï¿½Öµï¿½ï¿½Îªï¿½ï¿½"+jedis.hgetAll("hash"));
+        System.out.println("É¢ï¿½ï¿½hashï¿½Ð¼ï¿½Öµï¿½ÔµÄ¸ï¿½ï¿½ï¿½ï¿½ï¿½"+jedis.hlen("hash"));
+        System.out.println("ï¿½Ð¶ï¿½hashï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½key2ï¿½ï¿½"+jedis.hexists("hash","key2"));
+        System.out.println("ï¿½Ð¶ï¿½hashï¿½ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½key3ï¿½ï¿½"+jedis.hexists("hash","key3"));
+        System.out.println("ï¿½ï¿½È¡hashï¿½Ðµï¿½Öµï¿½ï¿½"+jedis.hmget("hash","key3"));
+        System.out.println("ï¿½ï¿½È¡hashï¿½Ðµï¿½Öµï¿½ï¿½"+jedis.hmget("hash","key3","key4"));
     }
 
     /**
-     * ÓÐÐò¼¯ºÏ
+     * ï¿½ï¿½ï¿½ò¼¯ºï¿½
      */
     @Test
     public void testSortedSet() {
@@ -244,42 +244,42 @@ public class JedisClusterTest {
         map.put("key3",4.0);
         map.put("key4",5.0);
         map.put("key5",0.2);
-        // ½«Ò»¸ö»ò¶à¸ö member ÔªËØ¼°Æä score Öµ¼ÓÈëµ½ÓÐÐò¼¯ key µ±ÖÐ£¬Èç¹ûÄ³¸ö member ÒÑ¾­ÊÇÓÐÐò¼¯µÄ³ÉÔ±£¬ÄÇÃ´¸üÐÂÕâ¸ö member µÄ score Öµ
-        // score Öµ¿ÉÒÔÊÇÕûÊýÖµ»òË«¾«¶È¸¡µãÊý
+        // ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ member Ôªï¿½Ø¼ï¿½ï¿½ï¿½ score Öµï¿½ï¿½ï¿½ëµ½ï¿½ï¿½ï¿½ï¿½ key ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½Ä³ï¿½ï¿½ member ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò¼¯µÄ³ï¿½Ô±ï¿½ï¿½ï¿½ï¿½Ã´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ member ï¿½ï¿½ score Öµ
+        // score Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Ë«ï¿½ï¿½ï¿½È¸ï¿½ï¿½ï¿½ï¿½ï¿½
         System.out.println(jedis.zadd("zset", 3,"key1"));
         System.out.println(jedis.zadd("zset",map));
-        System.out.println("zsetÖÐµÄËùÓÐÔªËØ£º"+jedis.zrange("zset", 0, -1));
-        System.out.println("zsetÖÐµÄËùÓÐÔªËØ£º"+jedis.zrangeWithScores("zset", 0, -1));
-        System.out.println("zsetÖÐµÄËùÓÐÔªËØ£º"+jedis.zrangeByScore("zset", 0,100));
-        System.out.println("zsetÖÐµÄËùÓÐÔªËØ£º"+jedis.zrangeByScoreWithScores("zset", 0,100));
-        System.out.println("zsetÖÐkey2µÄ·ÖÖµ£º"+jedis.zscore("zset", "key2"));
-        System.out.println("zsetÖÐkey2µÄÅÅÃû£º"+jedis.zrank("zset", "key2"));
-        System.out.println("É¾³ýzsetÖÐµÄÔªËØkey3£º"+jedis.zrem("zset", "key3"));
-        System.out.println("zsetÖÐµÄËùÓÐÔªËØ£º"+jedis.zrange("zset", 0, -1));
-        System.out.println("zsetÖÐÔªËØµÄ¸öÊý£º"+jedis.zcard("zset"));
-        System.out.println("zsetÖÐ·ÖÖµÔÚ1-4Ö®¼äµÄÔªËØµÄ¸öÊý£º"+jedis.zcount("zset", 1, 4));
-        System.out.println("key2µÄ·ÖÖµ¼ÓÉÏ5£º"+jedis.zincrby("zset", 5, "key2"));
-        System.out.println("key3µÄ·ÖÖµ¼ÓÉÏ4£º"+jedis.zincrby("zset", 4, "key3"));
-        System.out.println("zsetÖÐµÄËùÓÐÔªËØ£º"+jedis.zrange("zset", 0, -1));
+        System.out.println("zsetï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.zrange("zset", 0, -1));
+        System.out.println("zsetï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.zrangeWithScores("zset", 0, -1));
+        System.out.println("zsetï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.zrangeByScore("zset", 0,100));
+        System.out.println("zsetï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.zrangeByScoreWithScores("zset", 0,100));
+        System.out.println("zsetï¿½ï¿½key2ï¿½Ä·ï¿½Öµï¿½ï¿½"+jedis.zscore("zset", "key2"));
+        System.out.println("zsetï¿½ï¿½key2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"+jedis.zrank("zset", "key2"));
+        System.out.println("É¾ï¿½ï¿½zsetï¿½Ðµï¿½Ôªï¿½ï¿½key3ï¿½ï¿½"+jedis.zrem("zset", "key3"));
+        System.out.println("zsetï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.zrange("zset", 0, -1));
+        System.out.println("zsetï¿½ï¿½Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½ï¿½ï¿½"+jedis.zcard("zset"));
+        System.out.println("zsetï¿½Ð·ï¿½Öµï¿½ï¿½1-4Ö®ï¿½ï¿½ï¿½Ôªï¿½ØµÄ¸ï¿½ï¿½ï¿½ï¿½ï¿½"+jedis.zcount("zset", 1, 4));
+        System.out.println("key2ï¿½Ä·ï¿½Öµï¿½ï¿½ï¿½ï¿½5ï¿½ï¿½"+jedis.zincrby("zset", 5, "key2"));
+        System.out.println("key3ï¿½Ä·ï¿½Öµï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½"+jedis.zincrby("zset", 4, "key3"));
+        System.out.println("zsetï¿½Ðµï¿½ï¿½ï¿½ï¿½ï¿½Ôªï¿½Ø£ï¿½"+jedis.zrange("zset", 0, -1));
     }
 
     /**
-     * ÅÅÐò
+     * ï¿½ï¿½ï¿½ï¿½
      */
     @Test
     public void testSort() {
         jedis.lpush("collections", "ArrayList", "Vector", "Stack", "HashMap", "WeakHashMap", "LinkedHashMap");
-        System.out.println("collectionsµÄÄÚÈÝ£º"+jedis.lrange("collections", 0, -1));
+        System.out.println("collectionsï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½"+jedis.lrange("collections", 0, -1));
         SortingParams sortingParameters = new SortingParams();
-        // µ±Êý¾Ý¼¯ÖÐ±£´æµÄÊÇ×Ö·û´®ÖµÊ±£¬Äã¿ÉÒÔÓÃ ALPHA,Ä¬ÈÏÊÇÉýÐò
-        System.out.println("alphaÅÅÐò·½Ê½£º" + jedis.sort("collections",sortingParameters.alpha()));
+        // ï¿½ï¿½ï¿½ï¿½ï¿½Ý¼ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ÖµÊ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ALPHA,Ä¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+        System.out.println("alphaï¿½ï¿½ï¿½ï¿½Ê½ï¿½ï¿½" + jedis.sort("collections",sortingParameters.alpha()));
         System.out.println("===============================");
         jedis.lpush("sortedList", "3","6","2","0","7","4");
-        System.out.println("sortedListÅÅÐòÇ°£º"+jedis.lrange("sortedList", 0, -1));
-        System.out.println("ÉýÐò£º"+jedis.sort("sortedList", sortingParameters.asc()));
-        System.out.println("½µÐò£º"+jedis.sort("sortedList", sortingParameters.desc()));
+        System.out.println("sortedListï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½"+jedis.lrange("sortedList", 0, -1));
+        System.out.println("ï¿½ï¿½ï¿½ï¿½"+jedis.sort("sortedList", sortingParameters.asc()));
+        System.out.println("ï¿½ï¿½ï¿½ï¿½"+jedis.sort("sortedList", sortingParameters.desc()));
         System.out.println("===============================");
-        // ¼¯ÈºÏÂ²»Ö§³Ö·Ö¸î±íÅÅÐò
+        // ï¿½ï¿½Èºï¿½Â²ï¿½Ö§ï¿½Ö·Ö¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
         /*jedis.lpush("userlist", "33");
         jedis.lpush("userlist", "22");
         jedis.lpush("userlist", "55");
@@ -295,7 +295,7 @@ public class JedisClusterTest {
         jedis.hset("user:55", "add", "chongqing");
         jedis.hset("user:66", "add", "xi'an");
         sortingParameters = new SortingParams();
-        // ·ûºÅ "->" ÓÃÓÚ·Ö¸î¹þÏ£±íµÄ¼üÃû(key name)ºÍË÷ÒýÓò(hash field)£¬¸ñÊ½Îª "key->field"
+        // ï¿½ï¿½ï¿½ï¿½ "->" ï¿½ï¿½ï¿½Ú·Ö¸ï¿½ï¿½Ï£ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½(key name)ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(hash field)ï¿½ï¿½ï¿½ï¿½Ê½Îª "key->field"
         sortingParameters.get("user:*->name");
         sortingParameters.get("user:*->add");
         System.out.println(jedis.sort("userlist",sortingParameters));*/

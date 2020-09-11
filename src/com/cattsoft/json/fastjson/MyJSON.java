@@ -15,20 +15,20 @@ import com.cattsoft.json.fastjson.bean.Teacher;
 import com.google.gson.JsonParser;
 
 	/**
-	 * JSON ×Ö·û´®ºÍ JSON ¶ÔÏóÖ®¼äµÄ×ª»»¾ÍÊÇĞòÁĞ»¯ºÍ·´ĞòÁĞ»¯µÄ¹ı³Ì£¬
-	 * JavaBean------>JSON×Ö·û´®£ºĞòÁĞ»¯
-	 * JSON×Ö·û´®------>JavaBean:·´ĞòÁĞ»¯
-	 * Ñ§Ï°µØÖ·£ºhttps://www.cnblogs.com/Jie-Jack/p/3758046.html
-	 * @author ÁõÓÀ¼á
+	 * JSON å­—ç¬¦ä¸²å’Œ JSON å¯¹è±¡ä¹‹é—´çš„è½¬æ¢å°±æ˜¯åºåˆ—åŒ–å’Œååºåˆ—åŒ–çš„è¿‡ç¨‹ï¼Œ
+	 * JavaBean------>JSONå­—ç¬¦ä¸²ï¼šåºåˆ—åŒ–
+	 * JSONå­—ç¬¦ä¸²------>JavaBean:ååºåˆ—åŒ–
+	 * å­¦ä¹ åœ°å€ï¼šhttps://www.cnblogs.com/Jie-Jack/p/3758046.html
+	 * @author åˆ˜æ°¸åš
 	 *
 	 */
 public class MyJSON {
 	
-	// json×Ö·û´®-¼òµ¥¶ÔÏóĞÍ
+	// jsonå­—ç¬¦ä¸²-ç®€å•å¯¹è±¡å‹
 	private static final String JSON_OBJ_STR = "{\"studentName\":\"lily\",\"studentAge\":12}";
-	// json×Ö·û´®-Êı×éÀàĞÍ
+	// jsonå­—ç¬¦ä¸²-æ•°ç»„ç±»å‹
 	private static final String JSON_ARRAY_STR = "[{\"studentName\":\"lily\",\"studentAge\":12},{\"studentName\":\"lucy\",\"studentAge\":15}]";
-	// ¸´ÔÓ¸ñÊ½json×Ö·û´®
+	// å¤æ‚æ ¼å¼jsonå­—ç¬¦ä¸²
 	private static final String COMPLEX_JSON_STR = "{\"teacherName\":\"crystall\",\"teacherAge\":27,"
 			+ "\"course\":{\"courseName\":\"english\",\"code\":1270},"
 			+ "\"students\":[{\"studentName\":\"lily\",\"studentAge\":12},{\"studentName\":\"lucy\",\"studentAge\":15}]}";
@@ -36,16 +36,16 @@ public class MyJSON {
 	public static void main(String[] args) {
 
 		JSONObject simObj = JSON.parseObject(JSON_OBJ_STR);
-//		JSONObject arrayObj = JSON.parseObject(JSON_ARRAY_STR);//³ö´í£¬Êı×éÀàĞÍJSON
+//		JSONObject arrayObj = JSON.parseObject(JSON_ARRAY_STR);//å‡ºé”™ï¼Œæ•°ç»„ç±»å‹JSON
 		JSONObject compObj = JSON.parseObject(COMPLEX_JSON_STR);
 		System.out.println(simObj);
 	}
 	
-	//¼òµ¥json×Ö·û´®×ª³É JSONObject¶ÔÏó
+	//ç®€å•jsonå­—ç¬¦ä¸²è½¬æˆ JSONObjectå¯¹è±¡
 	@Test
 	public void testJSONStrToJSONObject(){
 		JSONObject obj1 = JSON.parseObject(JSON_OBJ_STR);
-		JSONObject obj2 = JSONObject.parseObject(JSON_OBJ_STR);//JSONObject ÊÇ JSON µÄ×ÓÀà
+		JSONObject obj2 = JSONObject.parseObject(JSON_OBJ_STR);//JSONObject æ˜¯ JSON çš„å­ç±»
 		
 		System.out.println("obj1=" + obj1 + " obj2=" + obj2);
 		String name = obj1.getString("studentName");
@@ -53,19 +53,19 @@ public class MyJSON {
 		System.out.println("studentName=" + name + " studentAge=" + age);
 	}
 	
-	//json×Ö·û´®-Êı×éÀàĞÍÓëJSONArrayÖ®¼äµÄ×ª»»
+	//jsonå­—ç¬¦ä¸²-æ•°ç»„ç±»å‹ä¸JSONArrayä¹‹é—´çš„è½¬æ¢
 	@Test
 	public void testJSONStrToJSONArray(){
 		JSONArray jsonArray = JSON.parseArray(JSON_ARRAY_STR);
 		System.out.println(jsonArray);
-		//Ñ­»··½·¨1
+		//å¾ªç¯æ–¹æ³•1
 		for(int i = 0; i < jsonArray.size(); i++){
 			JSONObject obj = jsonArray.getJSONObject(i);
 			System.out.print("studentName=" + obj.getString("studentName"));
 			System.out.println(" studentAge=" + obj.getInteger("studentAge"));
 		}
 		
-		//Ñ­»··½·¨2
+		//å¾ªç¯æ–¹æ³•2
 		for(Object obj : jsonArray){
 			JSONObject jsonObject = (JSONObject) obj;
 			System.out.print("studentName=" + jsonObject.getString("studentName"));
@@ -73,22 +73,22 @@ public class MyJSON {
 		}
 	}
 	
-	//¸´ÔÓjson¸ñÊ½×Ö·û´®ÓëJSONObjectÖ®¼äµÄ×ª»»
+	//å¤æ‚jsonæ ¼å¼å­—ç¬¦ä¸²ä¸JSONObjectä¹‹é—´çš„è½¬æ¢
 	@Test
 	public void testComplexJSONStrToJSONObject(){
 		
 		JSONObject jsonObj = JSON.parseObject(COMPLEX_JSON_STR);
 		String name = jsonObj.getString("teacherName");
 		Integer age = jsonObj.getInteger("teacherAge");
-		System.out.println("ÀÏÊ¦µÄĞÅÏ¢£º" + name + " " + age);
+		System.out.println("è€å¸ˆçš„ä¿¡æ¯ï¼š" + name + " " + age);
 		
 		JSONObject courseObj = jsonObj.getJSONObject("course");
 		String courseName = courseObj.getString("courseName");
 		Integer code = courseObj.getInteger("code");
-		System.out.println("½ÌµÄ¿Î³ÌĞÅÏ¢£º" + courseName + " " + code);
+		System.out.println("æ•™çš„è¯¾ç¨‹ä¿¡æ¯ï¼š" + courseName + " " + code);
 		
 		JSONArray studentArray = jsonObj.getJSONArray("students");
-		System.out.print("½ÌµÄÑ§ÉúĞÅÏ¢£º" );
+		System.out.print("æ•™çš„å­¦ç”Ÿä¿¡æ¯ï¼š" );
 		for(Object obj : studentArray){
 			JSONObject object = (JSONObject) obj;
 			String studentName = object.getString("studentName");
@@ -99,7 +99,7 @@ public class MyJSON {
 	
 
 	/**
-	 * json×Ö·û´®×ª³É¶ÔÓ¦µÄ¶ÔÏó
+	 * jsonå­—ç¬¦ä¸²è½¬æˆå¯¹åº”çš„å¯¹è±¡
 	 */
 	@Test
 	public void testJSONStrToJavaBeanObj(){
@@ -109,7 +109,7 @@ public class MyJSON {
 		Integer stuAge = stu.getStudentAge();
 		System.out.println(stuName + " " + stuAge);
 		
-		//·½·¨2
+		//æ–¹æ³•2
         Student student = JSON.parseObject(JSON_OBJ_STR, new TypeReference<Student>() {});
         String stuName1 = student.getStudentName();
 		Integer stuAge1 = student.getStudentAge();
@@ -145,36 +145,36 @@ public class MyJSON {
 		for(Student stu : students){
 			String studentName = stu.getStudentName();
 			Integer studentAge = stu.getStudentAge();
-			str = str + "Ñ§ÉúĞÕÃû£º" + studentName + " ÄêÁä£º" + studentAge + " ";
+			str = str + "å­¦ç”Ÿå§“åï¼š" + studentName + " å¹´é¾„ï¼š" + studentAge + " ";
 		}
 		
 		StringBuffer sb = new StringBuffer();
-		sb.append("ÀÏÊ¦ĞÕÃû£º" + teacherName + " ÄêÁä£º" + teancherAge + "\n");
-		sb.append("½ÌµÄ¿Î³Ì£º" + courseName + " ¿Î³Ì±àºÅ£º" + code + "\n");
-		sb.append("Ñ§ÉúÓĞ£º" + "\n" + str);
+		sb.append("è€å¸ˆå§“åï¼š" + teacherName + " å¹´é¾„ï¼š" + teancherAge + "\n");
+		sb.append("æ•™çš„è¯¾ç¨‹ï¼š" + courseName + " è¯¾ç¨‹ç¼–å·ï¼š" + code + "\n");
+		sb.append("å­¦ç”Ÿæœ‰ï¼š" + "\n" + str);
 		System.out.println(sb.toString());
 		
 	}
 	
 	/**
-	 * Bean ×ª³É  JSON×Ö·û´®
+	 * Bean è½¬æˆ  JSONå­—ç¬¦ä¸²
 	 */
 	
 	@Test
 	public void testJavaBeanToJSON(){
 		Student stu = new Student();
-		stu.setStudentName("ÕÅÈı");
+		stu.setStudentName("å¼ ä¸‰");
 		stu.setStudentAge(22);
 		
 		String jsonStr = JSON.toJSONString(stu, true);
 		System.out.println("jsonStr=" + jsonStr);
 		
-		//ÅĞ¶ÏÊÇ·ñÊÇ json ×Ö·û´®
+		//åˆ¤æ–­æ˜¯å¦æ˜¯ json å­—ç¬¦ä¸²
 		try{
 			JSONObject.parse(jsonStr);
 			//new JsonParser().parse(jsonStr).getAsJsonObject();
 		}catch(Exception e){
-			System.out.println("²»ÊÇjson");
+			System.out.println("ä¸æ˜¯json");
 		}
 		
 		
@@ -211,13 +211,13 @@ public class MyJSON {
 		list.add(map1);
 		list.add(map2);
 		
-		String listJson1 = JSON.toJSONString(list);//±ê×¼Êä³ö
-		String listJson = JSON.toJSONString(list, true);//¸ñÊ½»¯Êä³ö
+		String listJson1 = JSON.toJSONString(list);//æ ‡å‡†è¾“å‡º
+		String listJson = JSON.toJSONString(list, true);//æ ¼å¼åŒ–è¾“å‡º
 		
 		System.out.println(listJson1);
 		System.out.println(listJson);
 
-		//°Â¸ñ
+		//å¥¥æ ¼
 		//JSONArray.fromObject(maps);
 		
 	}
@@ -225,22 +225,22 @@ public class MyJSON {
 	@Test
 	public void testComplexBean2Json(){
 		Teacher tc = new Teacher();
-		tc.setTeacherName("ÕÅÈı");
+		tc.setTeacherName("å¼ ä¸‰");
 		tc.setTeacherAge(43);
 		
 		Course course = new Course();
-		course.setCourseName("ÓïÎÄ");
+		course.setCourseName("è¯­æ–‡");
 		course.setCode(0001);
 		tc.setCourse(course);
 		
 		List<Student>sts = new ArrayList<Student>();
 		Student st = new Student();
-		st.setStudentName("Ğ¡Ã÷");
+		st.setStudentName("å°æ˜");
 		st.setStudentAge(12);
 		sts.add(st);
 		
 		st = new Student();
-		st.setStudentName("Ğ¡ÕÅ");
+		st.setStudentName("å°å¼ ");
 		st.setStudentAge(14);
 		sts.add(st);
 		tc.setStudents(sts);
@@ -255,7 +255,7 @@ public class MyJSON {
 		try{
 			JSONObject.parse(str);
 		}catch(Exception e){
-			System.out.println(str + " ²»ÊÇJSON×Ö·û´®");
+			System.out.println(str + " ä¸æ˜¯JSONå­—ç¬¦ä¸²");
 		}
 		
 		

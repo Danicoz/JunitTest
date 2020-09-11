@@ -20,7 +20,7 @@ public class ConnTest {
 		ResultSet rs = null;
 		Statement stm = null;
 		PreparedStatement pstm = null;
-		String url = "jdbc:oracle:thin:@172.168.10.8:1521:orcl";
+		String url = "jdbc:oracle:thin:@11:orcl";
 		String user = "develop";
 		String password = "develop";
 		String className = "oracle.jdbc.OracleDriver";

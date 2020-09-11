@@ -20,26 +20,26 @@ public class GsonTest {
 
 	}
 
-	// bean×ª»»json
+	// beanè½¬æ¢json
 	public String testBean2Json() {
 
 		Book book = new Book();
 		book.setId("0001");
-		book.setName("°Ú¶ÉÈË");
+		book.setName("æ‘†æ¸¡äºº");
 
 		Gson gson = new Gson();
 		String bookJson = gson.toJson(book);
-		System.out.println(bookJson);// {"id":"0001","name":"°Ú¶ÉÈË"}
+		System.out.println(bookJson);// {"id":"0001","name":"æ‘†æ¸¡äºº"}
 
 		Student stu = new Student();
-		stu.setName("ÕÅÈı");
+		stu.setName("å¼ ä¸‰");
 		stu.setAge(22);
-		stu.setDesc("°à³¤");
-		stu.setSex("ÄĞ");
+		stu.setDesc("ç­é•¿");
+		stu.setSex("ç”·");
 
 		Book book1 = new Book();
 		book1.setId("0002");
-		book1.setName("ÄÂË¹ÁÖÔáÀñ");
+		book1.setName("ç©†æ–¯æ—è‘¬ç¤¼");
 
 		Set<Book> books = new HashSet<Book>();
 		books.add(book);
@@ -48,7 +48,7 @@ public class GsonTest {
 		stu.setBooks(books);
 
 		String stuJson = gson.toJson(stu);
-		// {"name":"ÕÅÈı","age":22,"sex":"ÄĞ","desc":"°à³¤","books":[{"id":"0002","name":"ÄÂË¹ÁÖÔáÀñ"},{"id":"0001","name":"°Ú¶ÉÈË"}]}
+		// {"name":"å¼ ä¸‰","age":22,"sex":"ç”·","desc":"ç­é•¿","books":[{"id":"0002","name":"ç©†æ–¯æ—è‘¬ç¤¼"},{"id":"0001","name":"æ‘†æ¸¡äºº"}]}
 		System.out.println(stuJson);
 
 		return stuJson;// stuJson bookJson
@@ -63,38 +63,38 @@ public class GsonTest {
 		System.out.println(stu);
 	}
 
-	// ×ª»»List »ò Set ¼¯ºÏ
+	// è½¬æ¢List æˆ– Set é›†åˆ
 	@Test
 	public void testComplexJson() {
 		Gson gson = new Gson();
-		String json = "[{\"id\":\"1\",\"name\":\"Json¼¼Êõ\"},{\"id\":\"2\",\"name\":\"java¼¼Êõ\"}]";
+		String json = "[{\"id\":\"1\",\"name\":\"JsonæŠ€æœ¯\"},{\"id\":\"2\",\"name\":\"javaæŠ€æœ¯\"}]";
 		System.out.println(json);
 
 		List<Book> list = gson.fromJson(json, new TypeToken<List<Book>>() {
 		}.getType());
-		System.out.println(list);// [Book [id=1, name=Json¼¼Êõ], Book [id=2,
-									// name=java¼¼Êõ]]
-		System.out.println(list.get(0).getName());// Json¼¼Êõ
+		System.out.println(list);// [Book [id=1, name=JsonæŠ€æœ¯], Book [id=2,
+									// name=javaæŠ€æœ¯]]
+		System.out.println(list.get(0).getName());// JsonæŠ€æœ¯
 
 		Set set = gson.fromJson(json, new TypeToken<Set>() {
 		}.getType());
 		System.out.println(set);
 	}
 
-	// json ¹¤¾ß
+	// json å·¥å…·
 	@Test
 	public void testJsonUtil(){
 		
-		//¸ñÊ½»¯Json
+		//æ ¼å¼åŒ–Json
 		Book book = new Book();
 		book.setId("0001");
-		book.setName("°Ú¶ÉÈË");
+		book.setName("æ‘†æ¸¡äºº");
 		Gson gson = new GsonBuilder().setPrettyPrinting().create();
 		String json = gson.toJson(book);
 		System.out.println(json);
 		
 		
-		//ÊÇ·ñÊÇjson×Ö·û´®:Í¨¹ı²¶×½µÄÒì³£À´ÅĞ¶ÏÊÇ·ñÊÇjson
+		//æ˜¯å¦æ˜¯jsonå­—ç¬¦ä¸²:é€šè¿‡æ•æ‰çš„å¼‚å¸¸æ¥åˆ¤æ–­æ˜¯å¦æ˜¯json
 		boolean jsonFlag = false;
 		try{
 			new JsonParser().parse(json + "json").getAsJsonObject();
@@ -104,7 +104,7 @@ public class GsonTest {
 		}
 		System.out.println(jsonFlag);
 		
-		//json´®ÖĞ»ñÈ¡»òÈ¥µôÄ³¸öÊôĞÔ
+		//jsonä¸²ä¸­è·å–æˆ–å»æ‰æŸä¸ªå±æ€§
 		try{
 			JsonParser jp = new JsonParser();
 			JsonElement je = jp.parse(json);
@@ -112,31 +112,31 @@ public class GsonTest {
 			String value = jo.get("id").toString();
 			System.out.println(value);
 			
-			//È¥µôÄ³¸öÊôĞÔ
+			//å»æ‰æŸä¸ªå±æ€§
 			jo.remove("name");
 			json = jo.toString();
 			System.out.println(json.toString());
 			
-			//Ôö¼ÓÄ³¸öÊôĞÔ
-			jo.addProperty("name", "°Ú¶ÉÈË");
+			//å¢åŠ æŸä¸ªå±æ€§
+			jo.addProperty("name", "æ‘†æ¸¡äºº");
 			json = jo.toString();
 			System.out.println(json.toString());
 			
-			//ÅĞ¶ÏÊÇ·ñÓĞÊôĞÔ
+			//åˆ¤æ–­æ˜¯å¦æœ‰å±æ€§
 			boolean isContains = jo.has("id");
 			System.out.println(isContains);
 			
 		}catch(Exception e){
-			System.out.println("ÊôĞÔ²»´æÔÚ£¡");
+			System.out.println("å±æ€§ä¸å­˜åœ¨ï¼");
 		}
 		
-		//´¦ÀíÊ±¼ä¸ñÊ½
+		//å¤„ç†æ—¶é—´æ ¼å¼
 		GsonBuilder builder = new GsonBuilder();
 		builder.setDateFormat("yyyy-MM-dd HH:mm:ss.SSS");
 		Gson gson1 = builder.create();
 		Book book1 = new Book();
 		book1.setId("0001");
-		book1.setName("°Ú¶ÉÈË");
+		book1.setName("æ‘†æ¸¡äºº");
 		book1.setTime(new Date());
 		
 		String json1 = gson1.toJson(book1);

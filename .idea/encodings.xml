@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="Encoding" defaultCharsetForPropertiesFiles="GBK">
-    <file url="PROJECT" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/lib/mysql-connector-java-8.0.13.jar" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/aug/jdk8/Jdk8Test.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/cattsoft/collections/ListTest.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/com/cattsoft/collections/MapTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/cattsoft/dbutil/DBUtil.java" charset="ISO-8859-1" />
+    <file url="file://$PROJECT_DIR$/src/com/cattsoft/json/MyJsonTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/cattsoft/json/fastjson/MyJSON.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/cattsoft/json/gson/GsonTest.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/com/cattsoft/utils/DateHelper.java" charset="GBK" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>

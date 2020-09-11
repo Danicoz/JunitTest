@@ -10,7 +10,7 @@ import java.util.Map;
 
 public class MyJsonTest {
 
-	// ÎŞĞò
+	// æ— åº
 	@Test
 	public void test() {
 		JSONObject obj = new JSONObject();
@@ -23,7 +23,7 @@ public class MyJsonTest {
 		System.out.println(obj);
 	}
 
-	// ÓĞĞò
+	// æœ‰åº
 	@Test
 	public void testSort() {
 		Map<String, Object> params = new LinkedHashMap<String, Object>();
@@ -31,7 +31,7 @@ public class MyJsonTest {
 		params.put("num", 101);
 		params.put("age", 23);
 		params.put("sex", "male");
-		String str = "{1:\"ÓÎÓ¾\", \"2\":\"ÓğÃ«Çò\"}";
+		String str = "{1:\"æ¸¸æ³³\", \"2\":\"ç¾½æ¯›çƒ\"}";
 		params.put("hobby", str);
 
 		String array = JSONArray.toJSONString(params);
@@ -40,7 +40,7 @@ public class MyJsonTest {
 		// JSONObject obj = new JSONObject(array);
 	}
 
-	// ×Ö·û´®×ª³ÉJSON¶ÔÏó
+	// å­—ç¬¦ä¸²è½¬æˆJSONå¯¹è±¡
 	@Test
 	public void stringToJson() {
 
@@ -52,25 +52,25 @@ public class MyJsonTest {
 
 		System.out.println(obj);
 
-		// »ñÈ¡¸÷¸öÊôĞÔÖµ
+		// è·å–å„ä¸ªå±æ€§å€¼
 		Integer id = obj.getInteger("id");
 		String title = obj.getString("title");
 		System.out.println("id=" + id + " title=" + title);
 
-		// ¸ù¾İÊôĞÔÃû»ñÈ¡JSONObjectÀà
+		// æ ¹æ®å±æ€§åè·å–JSONObjectç±»
 		JSONObject obj1 = obj.parseObject(obj.getString("config"));
 		Integer width = obj1.getInteger("width");
 		Integer height = obj1.getInteger("height");
 		System.out.println("width=" + width + " height=" + height);
 
-		// ¸ù¾İÊôĞÔÃû»ñÈ¡JSONArrayÊı×é
+		// æ ¹æ®å±æ€§åè·å–JSONArrayæ•°ç»„
 		JSONArray array = obj.getJSONArray("data");
 		for (int i = 0; i < array.size(); i++) {
 			System.out.print(array.get(i) + " ");
 		}
 
 		System.out.println();
-		//×ª³É¼òµ¥ Bean¶ÔÏó
+		//è½¬æˆç®€å• Beanå¯¹è±¡
 		String jsonStr1 = "{\"id\": 2," + " \"title\": \"json title\"}";
 		TestBean obj2 = JSON.parseObject(jsonStr1, TestBean.class);
 		System.out.println(obj2.toString());

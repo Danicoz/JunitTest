@@ -9,11 +9,11 @@ import java.util.Set;
 import org.junit.Test;
 
 /**
- * ×Ü£º
- * 	1¡¢Ã¶¾Ù¼¯ºÏMap,key±ØĞëÊÇÃ¶¾ÙÀàĞÍ£»
- * 	2¡¢Ö»ÊÇ¼òµ¥±éÀúÊı¾İ£¬Ê¹ÓÃforeachÑ­»·±éÀú£»
- * 	3¡¢Éæ¼°µ½±éÀú¹ı³ÌÉ¾³ıµÄÇé¿ö£¬ÒªÓÃµü´úÆ÷É¾³ı£¬·ñÔò±¨ConcurrentModificationExceptionÒì³££»
- *  4¡¢²»ÄÜÔÚ±éÀú¹ı³ÌÖĞĞÂÔöÊı¾İ¡£
+ * æ€»ï¼š
+ * 	1ã€æšä¸¾é›†åˆMap,keyå¿…é¡»æ˜¯æšä¸¾ç±»å‹ï¼›
+ * 	2ã€åªæ˜¯ç®€å•éå†æ•°æ®ï¼Œä½¿ç”¨foreachå¾ªç¯éå†ï¼›
+ * 	3ã€æ¶‰åŠåˆ°éå†è¿‡ç¨‹åˆ é™¤çš„æƒ…å†µï¼Œè¦ç”¨è¿­ä»£å™¨åˆ é™¤ï¼Œå¦åˆ™æŠ¥ConcurrentModificationExceptionå¼‚å¸¸ï¼›
+ *  4ã€ä¸èƒ½åœ¨éå†è¿‡ç¨‹ä¸­æ–°å¢æ•°æ®ã€‚
  * @author Administrator
  *
  */
@@ -22,10 +22,10 @@ public class MapTest {
 	@Test
 	public void testEnumMap() {
 		EnumMap enumMap = new EnumMap(Season.class);
-		enumMap.put(Season.SPRING, "´º·çĞìÀ´");
-		enumMap.put(Season.SUMMER, "ÏÄÈÕÑ×Ñ×");
-		enumMap.put(Season.FALL, "Çï·ÖÉªÉª");
-		enumMap.put(Season.WINTER, "°×Ñ©°¨°¨");
+		enumMap.put(Season.SPRING, "æ˜¥é£å¾æ¥");
+		enumMap.put(Season.SUMMER, "å¤æ—¥ç‚ç‚");
+		enumMap.put(Season.FALL, "ç§‹åˆ†ç‘Ÿç‘Ÿ");
+		enumMap.put(Season.WINTER, "ç™½é›ªçš‘çš‘");
 
 		System.out.println(enumMap);
 	}
@@ -46,7 +46,7 @@ public class MapTest {
 
 			if (map.containsKey("key4")) {
 //				it.remove();
-			    //map.put("key4_conKey", "value4");//ĞÂÔöÓĞ´íÎó£¬Ö»ÄÜĞÂ½¨¸ömap±£´æÊı¾İ
+			    //map.put("key4_conKey", "value4");//æ–°å¢æœ‰é”™è¯¯ï¼Œåªèƒ½æ–°å»ºä¸ªmapä¿å­˜æ•°æ®
 			}
 
 			if (map.containsValue("value4")) {
@@ -71,7 +71,7 @@ public class MapTest {
 			System.out.println(entry.getKey() + ":" + entry.getValue());
 		}
 		
-		//Ê¹ÓÃforeach±éÀúÊı¾İ£¬Ğ§ÂÊ¸ü¸ß
+		//ä½¿ç”¨foreachéå†æ•°æ®ï¼Œæ•ˆç‡æ›´é«˜
 		Set set = map.entrySet();
 		for(Object obj : set){
 			Entry e = (Entry) obj;
@@ -79,7 +79,7 @@ public class MapTest {
 		}
 	}
 	
-	//±éÀú¼¯ºÏvalueÖµ
+	//éå†é›†åˆvalueå€¼
 	@Test
 	public void testValues(){
 		Map<String, String> map = new HashMap<String, String>();
