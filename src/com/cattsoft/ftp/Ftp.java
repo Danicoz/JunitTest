@@ -20,44 +20,44 @@ import com.cattsoft.utils.FtpUtil;
 
 /** */
 /**
- * ֧�ֶϵ�������FTPʵ����
- * 
- * @version 0.1 ʵ�ֻ����ϵ��ϴ�����
- * @version 0.2 ʵ���ϴ����ؽ��Ȼ㱨
- * @version 0.3 ʵ������Ŀ¼�����������ļ���������Ӷ������ĵ�֧��
+ * 支持断点续传的FTP实用类
+ *
+ * @version 0.1 实现基本断点上传下载
+ * @version 0.2 实现上传下载进度汇报
+ * @version 0.3 实现中文目录创建及中文文件创建，添加对于中文的支持
  */
 public class Ftp {
 
-	// ö����UploadStatus����
+	// 枚举类UploadStatus代码
 
 	public enum UploadStatus {
-		Create_Directory_Fail, // Զ�̷�������ӦĿ¼����ʧ��
-		Create_Directory_Success, // Զ�̷���������Ŀ¼�ɹ�
-		Upload_New_File_Success, // �ϴ����ļ��ɹ�
-		Upload_New_File_Failed, // �ϴ����ļ�ʧ��
-		File_Exits, // �ļ��Ѿ�����
-		Remote_Bigger_Local, // Զ���ļ����ڱ����ļ�
-		Upload_From_Break_Success, // �ϵ������ɹ�
-		Upload_From_Break_Failed, // �ϵ�����ʧ��
-		Delete_Remote_Faild; // ɾ��Զ���ļ�ʧ��
+		Create_Directory_Fail, // 远程服务器相应目录创建失败
+		Create_Directory_Success, // 远程服务器闯将目录成功
+		Upload_New_File_Success, // 上传新文件成功
+		Upload_New_File_Failed, // 上传新文件失败
+		File_Exits, // 文件已经存在
+		Remote_Bigger_Local, // 远程文件大于本地文件
+		Upload_From_Break_Success, // 断点续传成功
+		Upload_From_Break_Failed, // 断点续传失败
+		Delete_Remote_Faild; // 删除远程文件失败
 	}
 
-	// ö����DownloadStatus����
+	// 枚举类DownloadStatus代码
 	public enum DownloadStatus {
-		Remote_File_Noexist, // Զ���ļ�������
-		Local_Bigger_Remote, // �����ļ�����Զ���ļ�
-		Download_From_Break_Success, // �ϵ������ļ��ɹ�
-		Download_From_Break_Failed, // �ϵ������ļ�ʧ��
-		Download_New_Success, // ȫ�������ļ��ɹ�
-		Download_New_Failed; // ȫ�������ļ�ʧ��
+		Remote_File_Noexist, // 远程文件不存在
+		Local_Bigger_Remote, // 本地文件大于远程文件
+		Download_From_Break_Success, // 断点下载文件成功
+		Download_From_Break_Failed, // 断点下载文件失败
+		Download_New_Success, // 全新下载文件成功
+		Download_New_Failed; // 全新下载文件失败
 	}
 
 	public FTPClient ftpClient = new FTPClient();
 	private String ftpURL, username, pwd, ftpport, file1, file2;
 
 	public Ftp(String _ftpURL, String _username, String _pwd, String _ftpport,
-			String _file1, String _file2) {
-		// ���ý�������ʹ�õ����������������̨
+			   String _file1, String _file2) {
+		// 设置将过程中使用到的命令输出到控制台
 		ftpURL = _ftpURL;
 		username = _username;
 		pwd = _pwd;
@@ -67,28 +67,28 @@ public class Ftp {
 		this.ftpClient.addProtocolCommandListener(new PrintCommandListener(
 				new PrintWriter(System.out)));
 	}
-	
+
 	public Ftp() {
 		// TODO Auto-generated constructor stub
 	}
 
 	/** */
 	/**
-	 * ���ӵ�FTP������
-	 * 
+	 * 连接到FTP服务器
+	 *
 	 * @param hostname
-	 *            ������
+	 *            主机名
 	 * @param port
-	 *            �˿�
+	 *            端口
 	 * @param username
-	 *            �û���
+	 *            用户名
 	 * @param password
-	 *            ����
-	 * @return �Ƿ����ӳɹ�
+	 *            密码
+	 * @return 是否连接成功
 	 * @throws IOException
 	 */
 	public boolean connect(String hostname, int port, String username,
-			String password) throws IOException {
+						   String password) throws IOException {
 		ftpClient.connect(hostname, port);
 		ftpClient.setControlEncoding("GBK");
 		if (FTPReply.isPositiveCompletion(ftpClient.getReplyCode())) {
@@ -102,43 +102,43 @@ public class Ftp {
 
 	/** */
 	/**
-	 * ��FTP�������������ļ�,֧�ֶϵ��������ϴ��ٷֱȻ㱨
-	 * 
+	 * 从FTP服务器上下载文件,支持断点续传，上传百分比汇报
+	 *
 	 * @param remote
-	 *            Զ���ļ�·��
+	 *            远程文件路径
 	 * @param local
-	 *            �����ļ�·��
-	 * @return �ϴ���״̬
+	 *            本地文件路径
+	 * @return 上传的状态
 	 * @throws IOException
 	 */
 	public DownloadStatus download(String remote, String local)
 			throws IOException {
-		// ���ñ���ģʽ
+		// 设置被动模式
 		ftpClient.enterLocalPassiveMode();
-		// �����Զ����Ʒ�ʽ����
+		// 设置以二进制方式传输
 		ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
 		DownloadStatus result;
 
-		// ���Զ���ļ��Ƿ����
+		// 检查远程文件是否存在
 		FTPFile[] files = ftpClient.listFiles(new String(
 				remote.getBytes("GBK"), "iso-8859-1"));
 		if (files.length != 1) {
-			System.out.println("Զ���ļ�������");
+			System.out.println("远程文件不存在");
 			return DownloadStatus.Remote_File_Noexist;
 		}
 
 		long lRemoteSize = files[0].getSize();
 		File f = new File(local);
-		// ���ش����ļ������жϵ�����
+		// 本地存在文件，进行断点下载
 		if (f.exists()) {
 			long localSize = f.length();
-			// �жϱ����ļ���С�Ƿ����Զ���ļ���С
+			// 判断本地文件大小是否大于远程文件大小
 			if (localSize >= lRemoteSize) {
-				System.out.println("�����ļ�����Զ���ļ���������ֹ");
+				System.out.println("本地文件大于远程文件，下载中止");
 				return DownloadStatus.Local_Bigger_Remote;
 			}
 
-			// ���жϵ�����������¼״̬
+			// 进行断点续传，并记录状态
 			FileOutputStream out = new FileOutputStream(f, true);
 			ftpClient.setRestartOffset(localSize);
 			InputStream in = ftpClient.retrieveFileStream(new String(remote
@@ -154,8 +154,8 @@ public class Ftp {
 				if (nowProcess > process) {
 					process = nowProcess;
 					if (process % 10 == 0)
-						System.out.println("���ؽ��ȣ�" + process);
-					// TODO �����ļ����ؽ���,ֵ�����process������
+						System.out.println("下载进度：" + process);
+					// TODO 更新文件下载进度,值存放在process变量中
 				}
 			}
 			in.close();
@@ -182,8 +182,8 @@ public class Ftp {
 				if (nowProcess > process) {
 					process = nowProcess;
 					if (process % 10 == 0)
-						System.out.println("���ؽ��ȣ�" + process);
-					// TODO �����ļ����ؽ���,ֵ�����process������
+						System.out.println("下载进度：" + process);
+					// TODO 更新文件下载进度,值存放在process变量中
 				}
 			}
 			in.close();
@@ -200,35 +200,35 @@ public class Ftp {
 
 	/** */
 	/**
-	 * �ϴ��ļ���FTP��������֧�ֶϵ�����
-	 * 
+	 * 上传文件到FTP服务器，支持断点续传
+	 *
 	 * @param local
-	 *            �����ļ����ƣ�����·��
+	 *            本地文件名称，绝对路径
 	 * @param remote
-	 *            Զ���ļ�·����ʹ��/home/directory1/subdirectory/file.ext����
+	 *            远程文件路径，使用/home/directory1/subdirectory/file.ext或是
 	 *            http://www.guihua.org /subdirectory/file.ext
-	 *            ����Linux�ϵ�·��ָ����ʽ��֧�ֶ༶Ŀ¼Ƕ�ף�֧�ֵݹ鴴�������ڵ�Ŀ¼�ṹ
-	 * @return �ϴ����
+	 *            按照Linux上的路径指定方式，支持多级目录嵌套，支持递归创建不存在的目录结构
+	 * @return 上传结果
 	 * @throws IOException
 	 */
 	public UploadStatus upload(String local, String remote) throws IOException {
-		// ����PassiveMode����
+		// 设置PassiveMode传输
 		ftpClient.enterLocalPassiveMode();
-		// �����Զ��������ķ�ʽ����
+		// 设置以二进制流的方式传输
 		ftpClient.setFileType(FTP.BINARY_FILE_TYPE);
 		ftpClient.setControlEncoding("GBK");
 		UploadStatus result;
-		// ��Զ��Ŀ¼�Ĵ���
+		// 对远程目录的处理
 		String remoteFileName = remote;
 		if (remote.contains("/")) {
 			remoteFileName = remote.substring(remote.lastIndexOf("/") + 1);
-			// ����������Զ��Ŀ¼�ṹ������ʧ��ֱ�ӷ���
+			// 创建服务器远程目录结构，创建失败直接返回
 			if (CreateDirecroty(remote, ftpClient) == UploadStatus.Create_Directory_Fail) {
 				return UploadStatus.Create_Directory_Fail;
 			}
 		}
 
-		// ���Զ���Ƿ�����ļ�
+		// 检查远程是否存在文件
 		FTPFile[] files = ftpClient.listFiles(new String(remoteFileName.getBytes("GBK"), "iso-8859-1"));
 		if (files.length == 1) {
 			long remoteSize = files[0].getSize();
@@ -240,10 +240,10 @@ public class Ftp {
 				return UploadStatus.Remote_Bigger_Local;
 			}
 
-			// �����ƶ��ļ��ڶ�ȡָ��,ʵ�ֶϵ�����
+			// 尝试移动文件内读取指针,实现断点续传
 			result = uploadFile(remoteFileName, f, ftpClient, remoteSize);
 
-			// ����ϵ�����û�гɹ�����ɾ�����������ļ��������ϴ�
+			// 如果断点续传没有成功，则删除服务器上文件，重新上传
 			if (result == UploadStatus.Upload_From_Break_Failed) {
 				if (!ftpClient.deleteFile(remoteFileName)) {
 					return UploadStatus.Delete_Remote_Faild;
@@ -258,8 +258,8 @@ public class Ftp {
 
 	/** */
 	/**
-	 * �Ͽ���Զ�̷�����������
-	 * 
+	 * 断开与远程服务器的连接
+	 *
 	 * @throws IOException
 	 */
 	public void disconnect() throws IOException {
@@ -270,13 +270,13 @@ public class Ftp {
 
 	/** */
 	/**
-	 * �ݹ鴴��Զ�̷�����Ŀ¼
-	 * 
+	 * 递归创建远程服务器目录
+	 *
 	 * @param remote
-	 *            Զ�̷������ļ�����·��
+	 *            远程服务器文件绝对路径
 	 * @param ftpClient
-	 *            FTPClient ����
-	 * @return Ŀ¼�����Ƿ�ɹ�
+	 *            FTPClient 对象
+	 * @return 目录创建是否成功
 	 * @throws IOException
 	 */
 	public UploadStatus CreateDirecroty(String remote, FTPClient ftpClient)
@@ -285,8 +285,8 @@ public class Ftp {
 		String directory = remote.substring(0, remote.lastIndexOf("/") + 1);
 		if (!directory.equalsIgnoreCase("/")
 				&& !ftpClient.changeWorkingDirectory(new String(directory
-						.getBytes("GBK"), "iso-8859-1"))) {
-			// ���Զ��Ŀ¼�����ڣ���ݹ鴴��Զ�̷�����Ŀ¼
+				.getBytes("GBK"), "iso-8859-1"))) {
+			// 如果远程目录不存在，则递归创建远程服务器目录
 			int start = 0;
 			int end = 0;
 			if (directory.startsWith("/")) {
@@ -302,7 +302,7 @@ public class Ftp {
 					if (ftpClient.makeDirectory(subDirectory)) {
 						ftpClient.changeWorkingDirectory(subDirectory);
 					} else {
-						System.out.println("����Ŀ¼ʧ��");
+						System.out.println("创建目录失败");
 						return UploadStatus.Create_Directory_Fail;
 					}
 				}
@@ -310,7 +310,7 @@ public class Ftp {
 				start = end + 1;
 				end = directory.indexOf("/", start);
 
-				// �������Ŀ¼�Ƿ񴴽����
+				// 检查所有目录是否创建完毕
 				if (end <= start) {
 					break;
 				}
@@ -321,32 +321,32 @@ public class Ftp {
 
 	/** */
 	/**
-	 * �ϴ��ļ���������,���ϴ��Ͷϵ�����
-	 * 
+	 * 上传文件到服务器,新上传和断点续传
+	 *
 	 * @param remoteFile
-	 *            Զ���ļ��������ϴ�֮ǰ�Ѿ�������������Ŀ¼���˸ı�
+	 *            远程文件名，在上传之前已经将服务器工作目录做了改变
 	 * @param localFile
-	 *            �����ļ� File���������·��
+	 *            本地文件 File句柄，绝对路径
 	 * @param processStep
-	 *            ��Ҫ��ʾ�Ĵ�����Ȳ���ֵ
+	 *            需要显示的处理进度步进值
 	 * @param ftpClient
-	 *            FTPClient ����
+	 *            FTPClient 引用
 	 * @return
 	 * @throws IOException
 	 */
 	public UploadStatus uploadFile(String remoteFile, File localFile,
-			FTPClient ftpClient, long remoteSize) throws IOException {
+								   FTPClient ftpClient, long remoteSize) throws IOException {
 		UploadStatus status;
-		// ��ʾ���ȵ��ϴ�
+		// 显示进度的上传
 		long step = localFile.length() / 100;
-		
-		
-		
+
+
+
 		long process = 0;
 		long localreadbytes = 0L;
 		RandomAccessFile raf = new RandomAccessFile(localFile, "r");
 		OutputStream out = ftpClient.appendFileStream(new String(remoteFile.getBytes("GBK"), "iso-8859-1"));
-		// �ϵ�����
+		// 断点续传
 		if (remoteSize > 0) {
 			ftpClient.setRestartOffset(remoteSize);
 			process = step == 0 ? 0 : remoteSize / step;
@@ -361,8 +361,8 @@ public class Ftp {
 			long temp = step == 0 ? 0 : localreadbytes / step;
 			if ( temp != process) {
 				process = step == 0 ? 0 : localreadbytes / step;
-				System.out.println("�ϴ�����:" + process);
-				// TODO �㱨�ϴ�״̬
+				System.out.println("上传进度:" + process);
+				// TODO 汇报上传状态
 			}
 		}
 		out.flush();
@@ -382,14 +382,14 @@ public class Ftp {
 	public static void main(String[] args) {
 		Ftp ftp = new Ftp();
 		try {
-			boolean flag = ftp.connect("10.131", 21, "Danicoz", "123456");
+			boolean flag = ftp.connect("172.168.10.131", 21, "Danicoz", "123456");
 			UploadStatus str = ftp.upload("E:\\eclipseWord\\JunitTest\\file\\aa.txt", "./ftp/aa.txt");
 			System.out.println(str);
 		} catch (Exception e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}   
-		
+		}
+
 	}
 
 }

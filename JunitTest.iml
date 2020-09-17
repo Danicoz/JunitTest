@@ -30,5 +30,6 @@
       </library>
     </orderEntry>
     <orderEntry type="library" name="mysql-connector-java-8.0.13" level="project" />
+    <orderEntry type="library" name="spring-web-5.0.7.RELEASE" level="project" />
   </component>
 </module>

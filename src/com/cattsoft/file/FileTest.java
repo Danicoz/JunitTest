@@ -6,41 +6,31 @@ import info.monitorenter.cpdetector.io.JChardetFacade;
 import info.monitorenter.cpdetector.io.ParsingDetector;
 import info.monitorenter.cpdetector.io.UnicodeDetector;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileFilter;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+import java.io.*;
 import java.nio.charset.Charset;
 import java.util.Date;
 
 import org.junit.Test;
+import org.springframework.web.multipart.MultipartFile;
 
 public class FileTest {
 
 	public static void main(String[] args) {
 
-		System.out.println("É¾³ı³¬¹ıÖ¸¶¨Ê±¼äµÄÎÄ¼ş£º");
+		System.out.println("åˆ é™¤è¶…è¿‡æŒ‡å®šæ—¶é—´çš„æ–‡ä»¶ï¼š");
 		deleteFileDay("C:/Users/Administrator/Desktop/ftp", 60);
 
-		System.out.println("É¾³ıÎÄ¼ş¼Ğ£º");
+		System.out.println("åˆ é™¤æ–‡ä»¶å¤¹ï¼š");
 		deldir("C:/Users/Administrator/Desktop/gg", true);
 	}
 
 	/**
-	 * É¾³ıÎÄ¼ş¼Ğ»òÇå¿ÕÎÄ¼ş¼Ğ
+	 * åˆ é™¤æ–‡ä»¶å¤¹æˆ–æ¸…ç©ºæ–‡ä»¶å¤¹
 	 * 
 	 * @param dir_path
-	 *            ÎÄ¼ş¼ĞµÄpath
+	 *            æ–‡ä»¶å¤¹çš„path
 	 * @param isDelRootDir
-	 *            true É¾³ı£¬false Çå¿Õ
+	 *            true åˆ é™¤ï¼Œfalse æ¸…ç©º
 	 */
 	public static void deldir(String dir_path, boolean isDelRootDir) {
 		File file = new File(dir_path);
@@ -54,27 +44,27 @@ public class FileTest {
 		File temp = null;
 
 		for (int i = 0; i < childFiles.length; i++) {
-			// File.separatorÓëÏµÍ³ÓĞ¹ØµÄÄ¬ÈÏÃû³Æ·Ö¸ô·û
+			// File.separatorä¸ç³»ç»Ÿæœ‰å…³çš„é»˜è®¤åç§°åˆ†éš”ç¬¦
 			if (dir_path.endsWith(File.separator)) {
 				temp = new File(dir_path + childFiles[i]);
 			} else {
 				temp = new File(dir_path + File.separator + childFiles[i]);
 			}
 			if (temp.isFile()) {
-				System.out.println("É¾³ıµÄÎÄ¼ş:" + temp);
+				System.out.println("åˆ é™¤çš„æ–‡ä»¶:" + temp);
 				temp.delete();
 			}
 			if (temp.isDirectory()) {
-				deldir(dir_path + "/" + childFiles[i], true);// ÏÈÉ¾³ıÎÄ¼ş¼ĞÀïÃæµÄÎÄ¼ş
+				deldir(dir_path + "/" + childFiles[i], true);// å…ˆåˆ é™¤æ–‡ä»¶å¤¹é‡Œé¢çš„æ–‡ä»¶
 				java.io.File temp1 = new java.io.File(dir_path + "/"
 						+ childFiles[i]);
-				System.out.println("É¾³ıµÄÎÄ¼ş¼Ğ:" + temp1);
-				temp1.delete(); // É¾³ı¿ÕÎÄ¼ş¼Ğ
+				System.out.println("åˆ é™¤çš„æ–‡ä»¶å¤¹:" + temp1);
+				temp1.delete(); // åˆ é™¤ç©ºæ–‡ä»¶å¤¹
 			}
 		}
 
 		if (isDelRootDir) {
-			System.out.println("É¾³ıÕâ¸öÄ¿Â¼ÏÂµÄËùÓĞÎÄ¼ş,°üÀ¨±¾Éí:" + file);
+			System.out.println("åˆ é™¤è¿™ä¸ªç›®å½•ä¸‹çš„æ‰€æœ‰æ–‡ä»¶,åŒ…æ‹¬æœ¬èº«:" + file);
 			file.delete();
 		}
 	}
@@ -84,18 +74,18 @@ public class FileTest {
 	}
 
 	/**
-	 * É¾³ıftpÏÂÔØµÄÎÄ¼ş
+	 * åˆ é™¤ftpä¸‹è½½çš„æ–‡ä»¶
 	 * 
 	 * @param sFileUrl
-	 *            ÎÄ¼şÂ·¾¶
+	 *            æ–‡ä»¶è·¯å¾„
 	 * @param savedays
-	 *            ±£´æµÄÌìÊı
+	 *            ä¿å­˜çš„å¤©æ•°
 	 */
 	public static void deleteFileDay(String sFileUrl, int savedays) {
 		Date nowdate = new Date();
 		try {
-			long saveDaylong = savedays * 1000l; // * 1000l * 3600 * 24;±£´æ×î³¤Ê±¼ä¼ä¸ô
-			System.out.println("¿ªÊ¼¼ì²éÄ¿Â¼" + sFileUrl + "ÏÂµÄÎÄ¼şÊÇ·ñ¹ıÆÚ  saveTime="
+			long saveDaylong = savedays * 1000l; // * 1000l * 3600 * 24;ä¿å­˜æœ€é•¿æ—¶é—´é—´éš”
+			System.out.println("å¼€å§‹æ£€æŸ¥ç›®å½•" + sFileUrl + "ä¸‹çš„æ–‡ä»¶æ˜¯å¦è¿‡æœŸ  saveTime="
 					+ saveDaylong + "ms");
 			if (sFileUrl != null && !sFileUrl.trim().equals("")) {
 
@@ -103,23 +93,23 @@ public class FileTest {
 				File files[] = dirFile.listFiles();
 				for (File file : files) {
 					if (nowdate.getTime() - file.lastModified() >= saveDaylong) {
-						System.out.println(file.getPath() + ",Õâ¸öÎÄ¼şÒÑ¾­¹ıÆÚ,É¾³ı¸ÃÎÄ¼ş");
+						System.out.println(file.getPath() + ",è¿™ä¸ªæ–‡ä»¶å·²ç»è¿‡æœŸ,åˆ é™¤è¯¥æ–‡ä»¶");
 						file.delete();
 					}
 				}
 			} else {
-				System.out.println("ÎÄ¼şÄ¿Â¼ÎªsFileUrl:" + sFileUrl + "Îª¿Õ");
+				System.out.println("æ–‡ä»¶ç›®å½•ä¸ºsFileUrl:" + sFileUrl + "ä¸ºç©º");
 			}
 
 		} catch (Exception ex) {
-			System.out.println("É¾³ıÄ¿Â¼ÏÂ" + sFileUrl + "µÄÎÄ¼ş³ö´í:");
+			System.out.println("åˆ é™¤ç›®å½•ä¸‹" + sFileUrl + "çš„æ–‡ä»¶å‡ºé”™:");
 		}
 
 	}
 
 	@Test
 	public void createFile() {
-		File file = new File("C:\\Users\\Administrator\\Desktop\\ftp.TXT");
+		File file = new File("C:\\Users\\Danicoz\\Desktop\\ftp.TXT");
 		try {
 			if (!file.exists()) {
 				file.createNewFile();
@@ -148,15 +138,15 @@ public class FileTest {
 		delFolder("./deleteFile");
 	}
 
-	// É¾³ıÎÄ¼ş¼Ğ
+	// åˆ é™¤æ–‡ä»¶å¤¹
 	public static void delFolder(String folderPath) {
 		try {
-			delAllFile(folderPath); // É¾³ıÍêÀïÃæËùÓĞÎÄ¼ş
+			delAllFile(folderPath); // åˆ é™¤å®Œé‡Œé¢æ‰€æœ‰æ–‡ä»¶
 			String filePath = folderPath;
 			filePath = filePath.toString();
 			File FilePath = new File(filePath);
 			if (FilePath.listFiles().length == 0) {
-				FilePath.delete(); // É¾³ı¿ÕÎÄ¼ş¼Ğ
+				FilePath.delete(); // åˆ é™¤ç©ºæ–‡ä»¶å¤¹
 			}
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -184,8 +174,8 @@ public class FileTest {
 				temp.delete();
 			}
 			if (temp.isDirectory()) {
-				delAllFile(path + "/" + tempList[i]);// ÏÈÉ¾³ıÎÄ¼ş¼ĞÀïÃæµÄÎÄ¼ş
-				delFolder(path + "/" + tempList[i]);// ÔÙÉ¾³ı¿ÕÎÄ¼ş¼Ğ
+				delAllFile(path + "/" + tempList[i]);// å…ˆåˆ é™¤æ–‡ä»¶å¤¹é‡Œé¢çš„æ–‡ä»¶
+				delFolder(path + "/" + tempList[i]);// å†åˆ é™¤ç©ºæ–‡ä»¶å¤¹
 				flag = true;
 			}
 		}
@@ -214,26 +204,25 @@ public class FileTest {
 		// fo.close();
 		// fs.close();
 
-		// ×Ö·û»º³å¿½±´ÎÄ¼ş
-		 BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("./file/c.txt")));
-		// BufferedWriter bw = new BufferedWriter(new
-		// FileWriter("./file/c1.txt"));
-		//
-		// String line = null;
-		// while ((line = br.readLine()) != null) {
-		// bw.write(line);
-		// bw.newLine();
-		// bw.flush();
-		// }
-		// bw.close();
-		// br.close();
+		// å­—ç¬¦ç¼“å†²æ‹·è´æ–‡ä»¶
+//		 BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("./file/c.txt"), "GBK"));
+//		 BufferedWriter bw = new BufferedWriter(new FileWriter("./file/c1.txt"));
+//
+//		 String line = null;
+//		 while ((line = br.readLine()) != null) {
+//		 bw.write(line);
+//		 bw.newLine();
+//		 bw.flush();
+//		 }
+//		 bw.close();
+//		 br.close();
 
-		// ×Ö½ÚÁ÷»º³å¿½±´Í¼Æ¬
+		// å­—èŠ‚æµç¼“å†²æ‹·è´å›¾ç‰‡
 		BufferedInputStream bis = null;
 		BufferedOutputStream bos = null;
 
-		bis = new BufferedInputStream(new FileInputStream("./file/·ÉÄñ.png"));// ÄäÃûÀà£¬´«ÈëÒ»¸öInputStreamÁ÷¶ÔÏó
-		bos = new BufferedOutputStream(new FileOutputStream("./file/·ÉÄñ1.png"));
+		bis = new BufferedInputStream(new FileInputStream("./file/é“¶å·å¸‚.pdf"));// åŒ¿åç±»ï¼Œä¼ å…¥ä¸€ä¸ªInputStreamæµå¯¹è±¡
+		bos = new BufferedOutputStream(new FileOutputStream("./file/é“¶å·å¸‚1.pdf"));
 		byte[] b = new byte[1024];
 		int len = 0;
 		while ((len= bis.read(b)) != -1) {
@@ -244,6 +233,27 @@ public class FileTest {
 		bos.close();
 		bis.close();
 	}
+
+	/**
+	 * æµè§ˆå™¨é€‰æ‹©æ–‡ä»¶ä¸Šä¼ ä¸‹è½½å›æ¥
+	 */
+	public void testMultipartFile(MultipartFile multipartFile) throws IOException {
+		BufferedInputStream bis = null;
+		BufferedOutputStream bos = null;
+
+		bis = new BufferedInputStream(new FileInputStream("./file/é“¶å·å¸‚.pdf"));
+		bos = new BufferedOutputStream(new FileOutputStream("./file/é“¶å·å¸‚1.pdf"));
+		byte[] b = new byte[1024];
+		int len = 0;
+		while ((len= bis.read(b)) != -1) {
+			bos.write(b, 0 , len);
+			bos.flush();
+		}
+
+		bos.close();
+		bis.close();
+	}
+
 	
 	@Test
 	public void testFile(){
