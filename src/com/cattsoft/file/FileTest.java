@@ -235,14 +235,17 @@ public class FileTest {
 	}
 
 	/**
-	 * 浏览器选择文件上传下载回来
+	 * 浏览器选择文件上传
 	 */
 	public void testMultipartFile(MultipartFile multipartFile) throws IOException {
+
+		String outPath = "./file/某某.pdf"; // 下载的地址
+
 		BufferedInputStream bis = null;
 		BufferedOutputStream bos = null;
 
-		bis = new BufferedInputStream(new FileInputStream("./file/银川市.pdf"));
-		bos = new BufferedOutputStream(new FileOutputStream("./file/银川市1.pdf"));
+		bis = new BufferedInputStream(multipartFile.getInputStream());
+		bos = new BufferedOutputStream(new FileOutputStream(outPath));
 		byte[] b = new byte[1024];
 		int len = 0;
 		while ((len= bis.read(b)) != -1) {
