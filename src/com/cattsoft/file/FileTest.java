@@ -237,6 +237,7 @@ public class FileTest {
 	/**
 	 * 浏览器选择文件上传
 	 */
+	protected static final int BUFFER_SIZE = 2048;
 	public void testMultipartFile(MultipartFile multipartFile) throws IOException {
 
 		String outPath = "./file/某某.pdf"; // 下载的地址
@@ -244,9 +245,9 @@ public class FileTest {
 		BufferedInputStream bis = null;
 		BufferedOutputStream bos = null;
 
-		bis = new BufferedInputStream(multipartFile.getInputStream());
-		bos = new BufferedOutputStream(new FileOutputStream(outPath));
-		byte[] b = new byte[1024];
+		bis = new BufferedInputStream(multipartFile.getInputStream(), BUFFER_SIZE);
+		bos = new BufferedOutputStream(new FileOutputStream(outPath), BUFFER_SIZE);
+		byte[] b = new byte[BUFFER_SIZE];
 		int len = 0;
 		while ((len= bis.read(b)) != -1) {
 			bos.write(b, 0 , len);

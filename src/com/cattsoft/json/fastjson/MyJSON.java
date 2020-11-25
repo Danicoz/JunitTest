@@ -272,7 +272,30 @@ public class MyJSON {
 		JSONObject.parse(jsonStr);
 
 	}
-	
+
+	@Test
+	public void testList(){
+
+		Integer[] str = {1,2,3,4,5};
+		Integer[] str1 = {1,2,3,4,5};
+		List<Integer[]>list = new ArrayList<>();
+		list.add(str);
+        list.add(str1);
+
+		JSONObject jsonObject = new JSONObject();
+		jsonObject.put("list", list);
+        jsonObject.put("list1", str);
+
+		System.out.println(jsonObject.toString());
+
+
+		String[]temp = new String[5];
+        System.out.println(temp.length);
+
+        System.out.println(temp[0]);
+
+
+	}
 	
 	
 }
