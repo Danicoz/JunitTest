@@ -31,42 +31,42 @@ public static void main(String[] args) {
 //		String g = "abcd";
 //		
 //		if(c == g ){
-//			System.out.println("cg×Ö·û´®³Ø¹²Ïí¶ÔÏó£¬²»¼ÓÈë£¡");
+//			System.out.println("cgï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½ï¿½ï¿½ë£¡");
 //		}else{
-//			System.out.println("g¼ÓÈë×Ö·û´®³Ø£¡");
+//			System.out.println("gï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø£ï¿½");
 //		}
 //		
 //		if(c == d ){
-//			System.out.println("cd×Ö·û´®³Ø¹²Ïí¶ÔÏó£¬²»¼ÓÈë£¡");
+//			System.out.println("cdï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½ï¿½ï¿½ë£¡");
 //		}else{
-//			System.out.println("d¼ÓÈë×Ö·û´®³Ø£¡");
+//			System.out.println("dï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø£ï¿½");
 //		}
 //		
 //		if(d == e ){
-//			System.out.println("de×Ö·û´®³Ø¹²Ïí¶ÔÏó£¬²»¼ÓÈë£¡");
+//			System.out.println("deï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½ï¿½ï¿½ë£¡");
 //		}else{
-//			System.out.println("e¼ÓÈë×Ö·û´®³Ø£¡");
+//			System.out.println("eï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø£ï¿½");
 //		}
 //		
 //		if(c == f ){
-//			System.out.println("cf×Ö·û´®³Ø¹²Ïí¶ÔÏó£¬²»¼ÓÈë£¡");
+//			System.out.println("cfï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½ï¿½ï¿½ë£¡");
 //		}else{
-//			System.out.println("f¼ÓÈë×Ö·û´®³Ø£¡");
+//			System.out.println("fï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø£ï¿½");
 //		}
 //		
 //		/*****************************************/
 //		String ab = static_a + static_b;
 //		if(g == ab){
-//			System.out.println("g/ab¹²ÏíÍ¬¸ö¶ÔÏó£¡");
+//			System.out.println("g/abï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 //		}else{
-//			System.out.println("ab¼ÓÈë×Ö·û´®³Ø!");
+//			System.out.println("abï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½!");
 //		}
 //		
 //		String cd = static_c + static_d;
 //		if(g == cd){
-//			System.out.println("g/cd¹²ÏíÍ¬¸ö¶ÔÏó£¡");
+//			System.out.println("g/cdï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 //		}else{
-//			System.out.println("cd¼ÓÈë×Ö·û´®³Ø!");
+//			System.out.println("cdï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½!");
 //		}
 		/*****************************************/
 	String str[] = {"1","2","3"};
@@ -87,14 +87,14 @@ public static void main(String[] args) {
 	@Test
 	public void test() {
 		String str = "abcd.efgh.yzkl";
-		System.out.println("Æ´½Ó×Ö·û´®" + str.concat("aa"));
-		System.out.println("ÊÇ·ñ°üº¬×Ö·û´®" + str.contains("cd"));
-		System.out.println("×îºó³öÏÖµÄÏÂ±ê" + str.lastIndexOf(".") + str.charAt(str.lastIndexOf(".")));
-		System.out.println("Ê×´Î³öÏÖµÄÏÂ±ê" + str.indexOf("."));
+		System.out.println("Æ´ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½" + str.concat("aa"));
+		System.out.println("ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½" + str.contains("cd"));
+		System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½Â±ï¿½" + str.lastIndexOf(".") + str.charAt(str.lastIndexOf(".")));
+		System.out.println("ï¿½×´Î³ï¿½ï¿½Öµï¿½ï¿½Â±ï¿½" + str.indexOf("."));
 		System.out.println(str.lastIndexOf("ced"));//-1
 		
-		System.out.println("×Ó×Ö·û´®" + str.substring(2));
-		System.out.println("×Ó×Ö·û´®" + str.substring(0, 4));//abc---²»º¬ÏÂ±êÎª4
+		System.out.println("ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½" + str.substring(2));
+		System.out.println("ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½" + str.substring(0, 4));//abc---ï¿½ï¿½ï¿½ï¿½ï¿½Â±ï¿½Îª4
 		
 		
 		System.out.println("***********************************");
@@ -117,14 +117,14 @@ public static void main(String[] args) {
 		Integer[] str = {1,2,3,4};
 		Integer num = str.length;
 		
-		System.out.print("×Ö·û´®=" + str.toString());
+		System.out.print("ï¿½Ö·ï¿½ï¿½ï¿½=" + str.toString());
 		
 		for(int i=0; i<2;i++){
 		if(num<2){
 			continue;
 		}else{
 			System.out.println("str=" + str);
-			str1 = str;//ÒýÓÃ¸³Öµ
+			str1 = str;//ï¿½ï¿½ï¿½Ã¸ï¿½Öµ
 		}
 		
 		}
@@ -142,28 +142,28 @@ public static void main(String[] args) {
 		String str1 = ",d,e,d,d,,s,f,3,2,3,";
 		String[] splitStr = sPlit(str1, ",");
 		
-		String[] s = str1.split(",");//×îºó¿ÕÊý¾Ý²»´òÓ¡³öÀ´ 3,2,3,
+		String[] s = str1.split(",");//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý²ï¿½ï¿½ï¿½Ó¡ï¿½ï¿½ï¿½ï¿½ 3,2,3,
 		System.out.println(s.length);
 		for(int i = 0; i < s.length; i++){
 			System.out.println("s=" + s[i]);
 		}
 		
 		for(String str : splitStr){
-			System.out.println("´òÓ¡" + str);
+			System.out.println("ï¿½ï¿½Ó¡" + str);
 		}
 		if(true && splitStr.length == 13){
-			System.out.println("Ôö¼Ó13¸ö×Ö¶ÎµÄ");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½13ï¿½ï¿½ï¿½Ö¶Îµï¿½");
 		list.add(splitStr);
 		}else if(true && splitStr.length == 12){
-			System.out.println("Ôö¼Ó12¸ö×Ö¶ÎµÄ");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½12ï¿½ï¿½ï¿½Ö¶Îµï¿½");
 			list.add(splitStr);
 		}else{
-			System.out.println("²»Ôö¼ÓÕâÐÐÊý¾Ý");
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 		}
 		
 	}
 	
-	//×Ö·û´®°´ÕÕ·Ö¸î·û·Å½øÊý×éÖÐ
+	//ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ·Ö¸ï¿½ï¿½ï¿½Å½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private static String[] sPlit(String lineStr, String sPlit) {
 		List<String> list = new ArrayList<String>();
 		String temp = lineStr;
@@ -209,7 +209,7 @@ public static void main(String[] args) {
 		}
 	}
 	
-	//·Ö¸î·ûÖ»´æÊý×ÖÊý×éÖÐ
+	//ï¿½Ö¸ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	private static String[] sPlit1(String lineStr, String sPlit) {
 		   List<String> list = new ArrayList<String>();
 	        String temp = lineStr;
@@ -239,8 +239,8 @@ public static void main(String[] args) {
 	}
 	
 	/**
-	 * replace : Ã»ÓÐ²»Ìæ´ú£¬
-	 * replaceAll : ¿ÉÌæ´úÕýÔò±í´ïÊ½
+	 * replace : Ã»ï¿½Ð²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	 * replaceAll : ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê½
 	 */
 	@Test
 	public void testReplace(){
@@ -255,9 +255,9 @@ public static void main(String[] args) {
 		System.out.println(">>>/////" + str1.replaceAll("/", "A"));      //        **********10
 		System.out.println("***>>>>>" + str1.replaceAll("[\\\\/*?<>:|\"]", "*"));//***********
 		
-		System.out.println("SELECT S_TITLE FROM T_IP_ORDER where S_TITLE like ${condition}".replace("${condition}", "'%Éè±¸EMSÃû³ÆºÍTELNET IP¾À´í%'"));
+		System.out.println("SELECT S_TITLE FROM T_IP_ORDER where S_TITLE like ${condition}".replace("${condition}", "'%ï¿½è±¸EMSï¿½ï¿½ï¿½Æºï¿½TELNET IPï¿½ï¿½ï¿½ï¿½%'"));
 		
-		String str2 = "501-ÌìË®Æ½°²ÈËÊÙ 9-150¶¨Î÷µ³Õþ×¨ÓÃ¾Ö1";
+		String str2 = "501-ï¿½ï¿½Ë®Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ 9-150ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¨ï¿½Ã¾ï¿½1";
 		System.out.println("str2=" + str2.replaceAll("\\d|-", ""));
 		str2 = StringUtils.substring(str2.replaceAll("\\d|-", ""), 0 ,2);
 		System.out.println("str2=" + str2);
@@ -266,12 +266,12 @@ public static void main(String[] args) {
 	}
 	
 	/**
-	 * ²âÊÔNull ÓÃ·¨
+	 * ï¿½ï¿½ï¿½ï¿½Null ï¿½Ã·ï¿½
 	 */
 	@Test
 	public void testNull(){
 		//System.out.println(null.size());
-		//System.out.println(null.equals(""));//ÕâÁ½¸öËµÃ÷±ØÐëÏÈÅÐ¶Ï×Ö¶ÎÊÇ·ñÎªnull    
+		//System.out.println(null.equals(""));//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ö¶ï¿½ï¿½Ç·ï¿½Îªnull    
 		
 		String str1 = null;
 		System.out.println("1".equals(str1));
@@ -297,7 +297,7 @@ public static void main(String[] args) {
 	        obj.add("a");
 	        obj.add("b");
 	        obj.add("c");
-	        System.out.println("ÒÆ³ýÇ°£º" + obj.toString());
+	        System.out.println("ï¿½Æ³ï¿½Ç°ï¿½ï¿½" + obj.toString());
 	        
 	        Iterator<Object> it = obj.iterator();
 	        for(int i=0; i<obj.size(); i++){
@@ -310,12 +310,12 @@ public static void main(String[] args) {
 	                i--;
 	            }
 	        }
-	        System.out.println("ÒÆ³ýºó£º " + obj.toString());
+	        System.out.println("ï¿½Æ³ï¿½ï¿½ï¿½ " + obj.toString());
 	    }
 	
 	@Test
 	public void getSubString(){
-		String temp = "/Ems=¶«Ý¸·é»ð´«Êä¶«³ÇÍø¹Ü/Ne=1103-ÆóÊ¯ÐÂ¾Ö/Shelf=01/Board=33/Port=1";
+		String temp = "/Ems=ï¿½ï¿½Ý¸ï¿½ï¿½ï¿½ï¿½ä¶«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/Ne=1103-ï¿½ï¿½Ê¯ï¿½Â¾ï¿½/Shelf=01/Board=33/Port=1";
 		int i = temp.lastIndexOf("/");
 		String temp1 = temp.substring(i+1,temp.length());
 		System.out.println("i=" + i + "\nnewString=" + temp1);
@@ -343,7 +343,7 @@ public static void main(String[] args) {
 		String stimeslot = "AU4/TU12=" + temp1[0] + "/"
 				+ ((Integer.parseInt(temp1[1]) - 1) * 21 + (Integer.parseInt(temp1[2]) - 1) * 3 + Integer.parseInt(temp1[3]));
 		System.out.println(stimeslot);
-		String moiName = "/Ems=»ªÎªSDHÊ¡¼¯ÖÐÍø¹ÜC/Ne=525-·ðÉ½ÀÕÁ÷/Shelf=1/Board=2/Port=SDH-4";
+		String moiName = "/Ems=ï¿½ï¿½ÎªSDHÊ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½C/Ne=525-ï¿½ï¿½É½ï¿½ï¿½ï¿½ï¿½/Shelf=1/Board=2/Port=SDH-4";
 		String str =moiName.substring(moiName.lastIndexOf("-") + 1, moiName.length());
 		System.out.println(str);
 		
@@ -354,9 +354,9 @@ public static void main(String[] args) {
 	
 	@Test
 	public void testPattern(){
-//		String reg = "ÄÚ²¿¶Ë¿Ú@155M(\\d+)\\^(\\d+)\\^(\\d+)\\^(\\d+)";
+//		String reg = "ï¿½Ú²ï¿½ï¿½Ë¿ï¿½@155M(\\d+)\\^(\\d+)\\^(\\d+)\\^(\\d+)";
 //		Pattern pattern = Pattern.compile(reg);
-//		String timeSlot = "ÄÚ²¿¶Ë¿Ú@155M04^2^5^1";
+//		String timeSlot = "ï¿½Ú²ï¿½ï¿½Ë¿ï¿½@155M04^2^5^1";
 //
 //		System.out.println(pattern.matcher(timeSlot).matches());
 		
@@ -375,7 +375,7 @@ public static void main(String[] args) {
 //			System.out.println(rate.length);
 //			Integer rateFirst = Integer.parseInt(rate[0]);
 //			for(String str : rate){
-//				System.out.println("×ª»»µÄÖµ==="+str);
+//				System.out.println("×ªï¿½ï¿½ï¿½ï¿½Öµ==="+str);
 //			}
 //			
 //			String tempSlot = ((Integer.parseInt(rate[3]) - 1) * 21 + (Integer.parseInt(rate[2]) - 1) * 3 + Integer.parseInt(rate[1])) + "";
@@ -395,7 +395,7 @@ public static void main(String[] args) {
 			}
 		}
 
-	//List ×ª³É  ´ø·Ö¸îºÅ×Ö·û´®
+	//List ×ªï¿½ï¿½  ï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½
 	public String listToString(List list, char separator) {
 		StringBuilder sb = new StringBuilder();
 		for (int i = 0; i < list.size(); i++) {
@@ -439,37 +439,37 @@ public static void main(String[] args) {
 			else if(i > 10){
 				
 				String str = "(" + sb.substring(0,sb.length()-1) + ")";
-				System.out.println(">=10µÄÇé¿ö:" + str);
+				System.out.println(">=10ï¿½ï¿½ï¿½ï¿½ï¿½:" + str);
 				i = 0;
 				sb = new StringBuffer();
 				sb.append("'" + a + "',");
 			}
 		}
 		String str = "(" + sb.toString().substring(0,sb.toString().length()-1) + ")";
-		System.out.println("<=10µÄÇé¿ö" + str);
+		System.out.println("<=10ï¿½ï¿½ï¿½ï¿½ï¿½" + str);
 	}
 
-	/*************************** ²âÊÔ´´½¨String ¶ÔÏó **********************
-          Êä³ö£º cg×Ö·û´®³Ø¹²Ïí¶ÔÏó£¬²»¼ÓÈë£¡
-		d¼ÓÈë×Ö·û´®³Ø£¡
-		e¼ÓÈë×Ö·û´®³Ø£¡
-		f¼ÓÈë×Ö·û´®³Ø£¡
-		g/ab¹²ÏíÍ¬¸ö¶ÔÏó£¡
-		cd¼ÓÈë×Ö·û´®³Ø!
-	×Ü£º 
-		¢Ù ¶ÔÓÚÊ¹ÓÃÒýºÅ°üº¬ÎÄ±¾µÄ·½Ê½´´½¨String¶ÔÏó "+" Á¬½Ó²úÉúµÄ¶ÔÏó²»»á¼ÓÈë×Ö·û´®³ØÖÐ¡£Èç "ab" + "cd";
-		¢Ú ¶ÔÓÚ°üº¬new·½Ê½(±äÁ¿)´´½¨String¶ÔÏó "+" Á¬½Ó²úÉúµÄ¶ÔÏó¼ÓÈë×Ö·û´®ÖÐ¡£Èç a + "cd";
-		¢Û ³£Á¿Ê¹ÓÃ "+" Á¬½Ó²»»á¼ÓÈë×Ö·û´®³ØÖÐ£¬¶ÔÓÚÎ´³õÊ¼»¯µÄ»á¼ÓÈë(³£Á¿ÔÚ±àÒëÆÚÒÑÈ·¶¨Öµ)¡£Èçstatic_a, static_b;
-		¢Ü µ±Ö´ÐÐString a="abc";Ê±£¬JAVAÐéÄâ»ú»áÔÚÕ»ÖÐ´´½¨Èý¸öcharÐÍµÄÖµ'a'¡¢'b'ºÍ'c'£¬È»ºóÔÚ¶ÑÖÐ´´½¨Ò»¸öString¶ÔÏó£¬
-		      ËüµÄÖµ£¨value£©ÊÇ¸Õ²ÅÔÚÕ»ÖÐ´´½¨µÄÈý¸öcharÐÍÖµ×é³ÉµÄÊý×é{'a','b','c'}£¬×îºóÕâ¸öÐÂ´´½¨µÄString¶ÔÏó»á±»Ìí¼Óµ½×Ö·û´®³ØÖÐ¡£
-		      Èç¹ûÎÒÃÇ½Ó×ÅÖ´ÐÐString b=new String("abc");´úÂë£¬ÓÉÓÚ"abc"ÒÑ¾­±»´´½¨²¢±£´æÓÚ×Ö·û´®³ØÖÐ£¬
-		      Òò´ËJAVAÐéÄâ»úÖ»»áÔÚ¶ÑÖÐÐÂ´´½¨Ò»¸öString¶ÔÏó£¬µ«ÊÇËüµÄÖµ£¨value£©ÊÇ¹²ÏíÇ°Ò»ÐÐ´úÂëÖ´ÐÐÊ±ÔÚÕ»ÖÐ´´
-		      ½¨µÄÈý¸öcharÐÍÖµÖµ'a'¡¢'b'ºÍ'c'¡£
+	/*************************** ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½String ï¿½ï¿½ï¿½ï¿½ **********************
+          ï¿½ï¿½ï¿½ï¿½ï¿½ cgï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø¹ï¿½ï¿½ï¿½ï¿½ï¿½ó£¬²ï¿½ï¿½ï¿½ï¿½ë£¡
+		dï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø£ï¿½
+		eï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø£ï¿½
+		fï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ø£ï¿½
+		g/abï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		cdï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½!
+	ï¿½Ü£ï¿½ 
+		ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ï¿½ï¿½Ä±ï¿½ï¿½Ä·ï¿½Ê½ï¿½ï¿½ï¿½ï¿½Stringï¿½ï¿½ï¿½ï¿½ "+" ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ó²»»ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ "ab" + "cd";
+		ï¿½ï¿½ ï¿½ï¿½ï¿½Ú°ï¿½ï¿½ï¿½newï¿½ï¿½Ê½(ï¿½ï¿½ï¿½ï¿½)ï¿½ï¿½ï¿½ï¿½Stringï¿½ï¿½ï¿½ï¿½ "+" ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½Ä¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ a + "cd";
+		ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½ "+" ï¿½ï¿½ï¿½Ó²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½ï¿½ï¿½Î´ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½Ú±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È·ï¿½ï¿½Öµ)ï¿½ï¿½ï¿½ï¿½static_a, static_b;
+		ï¿½ï¿½ ï¿½ï¿½Ö´ï¿½ï¿½String a="abc";Ê±ï¿½ï¿½JAVAï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ»ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½charï¿½Íµï¿½Öµ'a'ï¿½ï¿½'b'ï¿½ï¿½'c'ï¿½ï¿½È»ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½Ð´ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Stringï¿½ï¿½ï¿½ï¿½
+		      ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½valueï¿½ï¿½ï¿½Ç¸Õ²ï¿½ï¿½ï¿½Õ»ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½charï¿½ï¿½Öµï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½{'a','b','c'}ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½ï¿½ï¿½Stringï¿½ï¿½ï¿½ï¿½á±»ï¿½ï¿½Óµï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½
+		      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½String b=new String("abc");ï¿½ï¿½ï¿½ë£¬ï¿½ï¿½ï¿½ï¿½"abc"ï¿½Ñ¾ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½
+		      ï¿½ï¿½ï¿½JAVAï¿½ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½Ú¶ï¿½ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Stringï¿½ï¿½ï¿½ó£¬µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½valueï¿½ï¿½ï¿½Ç¹ï¿½ï¿½ï¿½Ç°Ò»ï¿½Ð´ï¿½ï¿½ï¿½Ö´ï¿½ï¿½Ê±ï¿½ï¿½Õ»ï¿½Ð´ï¿½
+		      ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½charï¿½ï¿½ÖµÖµ'a'ï¿½ï¿½'b'ï¿½ï¿½'c'ï¿½ï¿½
 	 */
 	
 	static final String static_a = "ab";
 	static final String static_b = "cd";
-	static final String static_c;//ÖµÎ´È·¶¨£¬ÀàËÆ±äÁ¿
+	static final String static_c;//ÖµÎ´È·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ±ï¿½ï¿½ï¿½
 	static final String static_d;
 	
 	static{
@@ -539,15 +539,15 @@ public static void main(String[] args) {
 	@Test
 	public void testStr(){
 		///////////////////////////////
-		String str ="GX-YL,07751,Â½´¨ÏØ»ã·á¾ÖZ01/ÖÐÐËZXA10C220-OLT02(FTTH/EPON),10.105.67.23,NA-0-3-2,28,LOID,0775000004006141,0775000004006141,,,2018-06-11 20:31:42,-23.85,4.82,-21.77,2.19,26.59,26.04,ÉÏÐÐ¹âË¥ÖÊÁ¿´ï±ê/ÏÂÐÐ¹âË¥ÖÊÁ¿´ï±ê,150002,07757310760,,,N,,EPON,ÏÂÐÐ¹âË¥´ï±ê";
-		String myStr = str + "SzX"; //ÖØ×éÃ¿Ò»ÐÐÊý¾Ý£¬ÎªÁËÔÚÇÐ¸îÊ±ºóÃæÈ«²¿ÊÇ¿ÕµÄÇé¿ö
+		String str ="GX-YL,07751,Â½ï¿½ï¿½ï¿½Ø»ï¿½ï¿½ï¿½Z01/ï¿½ï¿½ï¿½ï¿½ZXA10C220-OLT02(FTTH/EPON),10.105.67.23,NA-0-3-2,28,LOID,0775000004006141,0775000004006141,,,2018-06-11 20:31:42,-23.85,4.82,-21.77,2.19,26.59,26.04,ï¿½ï¿½ï¿½Ð¹ï¿½Ë¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½Ð¹ï¿½Ë¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,150002,07757310760,,,N,,EPON,ï¿½ï¿½ï¿½Ð¹ï¿½Ë¥ï¿½ï¿½ï¿½";
+		String myStr = str + "SzX"; //ï¿½ï¿½ï¿½ï¿½Ã¿Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ý£ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Ð¸ï¿½Ê±ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½ï¿½Ç¿Õµï¿½ï¿½ï¿½ï¿½
 		String[] myFields = myStr.split(",");
 		myFields[myFields.length-1] = myFields[myFields.length-1].replace("SzX", "");
 		System.out.println(myFields[18]);
 		///////////////////////////////////////
 		
 		System.out.println("==================");
-		String str1 = "11-492-ÄÏ²ýÓ­±ö-2-1-M40V-1(OUT)";
+		String str1 = "11-492-ï¿½Ï²ï¿½Ó­ï¿½ï¿½-2-1-M40V-1(OUT)";
 		System.out.println(str1.indexOf("(OUT)"));
 		System.out.println(str1.indexOf("(OUT1)"));
 		
@@ -556,7 +556,7 @@ public static void main(String[] args) {
 	
 	@Test
 	public void testSubString(){
-//		String str = "ÎàÖÝÊÐÎ¢²¨¾ÖËÞÉá-°¬Ä¬ÉúµçÔ´ÕûÁ÷ÆÁ";
+//		String str = "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Î¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½-ï¿½ï¿½Ä¬ï¿½ï¿½ï¿½ï¿½Ô´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½";
 //		int i = str.indexOf("_");
 //		int j = str.lastIndexOf("_");
 //		System.out.println(str.substring(i+1,j));
@@ -604,7 +604,7 @@ public static void main(String[] args) {
 	
 	@Test
 	public void testString(){
-		String str = "xSite=2195,ySite=3177##°×ÒøÊÐ¾¸Ô¶ÏØ±±Íå»·_Ìì×Ö";
+		String str = "xSite=2195,ySite=3177##ï¿½ï¿½ï¿½ï¿½ï¿½Ð¾ï¿½Ô¶ï¿½Ø±ï¿½ï¿½å»·_ï¿½ï¿½ï¿½ï¿½";
 		str = str.substring(str.indexOf("##") + 2);
 		System.out.println(str);
 		
@@ -612,11 +612,11 @@ public static void main(String[] args) {
 		str1 = str1.substring(1);
 		System.out.println(str1);
 		
-		System.out.println(StringUtils.contains("¼ÎÓø¹Ø", "¼ÎÓø"));
+		System.out.println(StringUtils.contains("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½ï¿½ï¿½"));
 		
 	}
 	
-	//È¥µôÇ°ÃæµÄ0
+	//È¥ï¿½ï¿½Ç°ï¿½ï¿½ï¿½0
 	@Test
 	public void testDelZero(){
 		String str = "0,00,01,10,010,011";
@@ -642,7 +642,12 @@ public static void main(String[] args) {
 		System.out.println(StringTest.tp);
 
 		System.out.println("503405".substring(0,2));
-	
+
+
+		String str22 = "1111#333";
+		System.out.println(str22.substring(0, str22.indexOf("#")));
+		System.out.println(str22.substring(str22.indexOf("#")+1, str22.length()));
+
 	}
 
 	@Test

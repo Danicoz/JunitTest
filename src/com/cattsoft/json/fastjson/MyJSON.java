@@ -293,9 +293,101 @@ public class MyJSON {
         System.out.println(temp.length);
 
         System.out.println(temp[0]);
+	}
+
+	@Test
+	public  void  testCreatExcel(){
+
+		String str = "{\"btInfo\":[{\"splcmc\":[\"政府投资工程建设项目审批流程图（房屋建筑类）\"],\"splclxmc\":\"政府投资工程建设项目（房屋建筑类）\",\"splcbm\":[\"4\"],\"splclx\":1},{\"splcmc\":[\"线性工程建设项目审批流程图\"],\"splclxmc\":\"政府投资工程建设项目（线性工程类）\",\"splcbm\":[\"5\"],\"splclx\":2},{\"splcmc\":[\"简易低风险类工程建设项目审批流程图\"],\"splclxmc\":\"小型社会投资项目\",\"splcbm\":[\"6\"],\"splclx\":4},{\"splcmc\":[\"内部改造类工程建设项目审批流程图\",\"新建扩建类工程建设项目审批流程图\",\"现状改建类工程建设项目审批流程图\"],\"splclxmc\":\"其他\",\"splcbm\":[\"1\",\"2\",\"3\"],\"splclx\":10}],\"xzqhdm\":\"110000\",\"isQualified\":[\"否\",\"否\",\"否\",\"是\",\"否\",\"是\"]," +
+				"\"xzqhmc\":\"广州\"," +
+				"\"isUpdate\":{\"" +
+				"isUpdateSqb4\":[[\"是\",\"否\",\"是\"],[\"是\",\"否\",\"是\"]]," +
+				"\"isUpdateSqb3\":[[\"是\",\"否\",\"是\"],[\"是\",\"否\",\"是\"]]," +
+				"\"isUpdateSqb2\":[[\"否\",\"否\",\"是\"],[\"否\",\"否\",\"是\"],[\"否\",\"否\",\"否\"]," +
+				"[\"\",\"\",\"\"],[\"是\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]]," +
+				"\"isUpdateSqb1\":[[\"是\",\"否\",\"是\"],[\"是\",\"否\",\"是\"],[\"是\",\"否\",\"否\"],[\"\",\"\",\"\"]," +
+				"[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]]," +
+				"\"isUpdateBjlc3\":[[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]],\"isUpdateBjlc2\":[[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"],[\"\",\"\",\"\"],[\"是\",\"否\",\"否\"],[\"否\",\"否\",\"否\"]],\"isUpdateBjqd1\":[[\"是\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"\",\"\",\"\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]],\"isUpdateBjlc4\":[[\"是\",\"否\",\"否\"],[\"是\",\"否\",\"否\"],[\"是\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]],\"isUpdateBjqd3\":[[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]],\"isUpdateBjqd2\":[[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"],[\"\",\"\",\"\"],[\"是\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]],\"isUpdateBjqd4\":[[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]],\"isUpdateBszn4\":[[\"否\",\"否\",\"是\"],[\"否\",\"否\",\"是\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]],\"isUpdateBszn1\":[[\"否\",\"否\",\"是\"],[\"是\",\"否\",\"是\"],[\"是\",\"否\",\"否\"],[\"\",\"\",\"\"],[\"是\",\"否\",\"是\"],[\"是\",\"否\",\"否\"]],\"isUpdateBjlc1\":[[\"是\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"\",\"\",\"\"],[\"是\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]],\"isUpdateBszn3\":[[\"是\",\"否\",\"是\"],[\"否\",\"否\",\"是\"],[\"否\",\"否\",\"否\"],[\"否\",\"否\",\"否\"],[\"是\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]],\"isUpdateBszn2\":[[\"否\",\"否\",\"是\"],[\"否\",\"否\",\"是\"],[\"是\",\"否\",\"否\"],[\"\",\"\",\"\"],[\"是\",\"否\",\"否\"],[\"是\",\"否\",\"否\"]]}," +
+				"\"remarks\":[\"0000\",\"9999\",\"00000\",\"1234567\",\"无\",\"545464ffff4444444\"]}";
+
+		JSONObject jsonObject = JSON.parseObject(str);
+		String str1 = JSON.toJSONString(str, true);
+		//System.out.println(str1);
+
+
+		String xzqhmc = jsonObject.getString("xzqhmc");
+		String xzqhdm = jsonObject.getString("xzqhdm");
+		System.out.println("xzqhdm=" + xzqhdm + "  xzqhmc=" + xzqhmc);
+
+		JSONObject isUpdateObject = jsonObject.getJSONObject("isUpdate");
+		System.out.println("isUpdateObject===" + isUpdateObject);
+
+		String isUpdateSqb4 = isUpdateObject.getString("isUpdateSqb4");
+		System.out.println("isUpdateSqb4==" + isUpdateSqb4);
+		String[] isUpdateSqb4Array = isUpdateSqb4.split("],\\[");
+
+		System.out.println("isUpdateSqb4Array=" + isUpdateSqb4Array.length + "   isUpdateSqb4Array[0]=" +isUpdateSqb4Array[0] );
+
+
+		System.out.println("=====remarks======");
+		String remarks = jsonObject.getString("remarks");
+		System.out.println("remarks=" + remarks);
+		System.out.println("=====remarks======");
+
+		System.out.println("===================");
+		JSONArray jsonArray = jsonObject.getJSONArray("btInfo");
+		System.out.println(jsonArray);
+		for(int i = 0; i < jsonArray.size(); i++){
+			JSONObject obj = jsonArray.getJSONObject(i);
+			System.out.println("splcmc=" + obj.getString("splcmc"));
+			System.out.println(" splclxmc=" + obj.getString("splclxmc"));
+
+			String str11 =  obj.getString("splcmc");
+			str11 = str11.substring( 1, str11.length() - 1 );
+			System.out.println("str11=== " + str11.substring( 1, str11.length() - 1 ));
+			String str111[] = str11.split(",");
+			System.out.println("str111[]==" + str111.length + "  str111[0]===" + str111[0]);
+		}
+		System.out.println("===================");
+//		JSONArray jsonArray = JSON.parseArray(JSON_ARRAY_STR);
+//		System.out.println(jsonArray);
+//		//循环方法1
+//		for(int i = 0; i < jsonArray.size(); i++){
+//			JSONObject obj = jsonArray.getJSONObject(i);
+//			System.out.print("studentName=" + obj.getString("studentName"));
+//			System.out.println(" studentAge=" + obj.getInteger("studentAge"));
+//		}
+
+	}
+
+	@Test
+	public void testSubstring(){
+		String str = "[\"内部改造类工程建设项目审批流程图\",\"新建扩建类工程建设项目审批流程图\",\"现状改建类工程建设项目审批流程图\"]";
+		str = str.substring(1, str.length()-1);
+		System.out.println("str==" + str);
 
 
 	}
 	
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

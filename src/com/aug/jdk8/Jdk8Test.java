@@ -2,11 +2,14 @@ package com.aug.jdk8;
 
 import com.aug.domain.Student;
 import com.cattsoft.utility.HashMap;
+import org.apache.commons.collections.map.HashedMap;
 import org.junit.Test;
 import org.junit.experimental.theories.suppliers.TestedOn;
 
 import java.io.*;
 import java.util.*;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ConcurrentMap;
 import java.util.function.Predicate;
 import java.util.regex.Pattern;
 import java.util.stream.Collector;
@@ -607,6 +610,121 @@ public class Jdk8Test {
         myMap3.put("cityName", "天津");
         myList.add(myMap3);
     }
+
+
+    @Test
+    public void testToCollection(){
+        List<String> str = Arrays.asList("1","2","6","5","7","9","8","3","2","5");
+
+
+        System.out.println(str.contains("5"));
+        System.out.println(str.contains("4"));
+
+
+        //toList 转成集合ArrayList
+        List<String>str1 = str.stream().collect(Collectors.toList());
+        str1.stream().forEach(t -> System.out.print(t.toString() + ";"));
+
+        System.out.println();
+
+        //toCollection 转成集合LinkedList
+        List<String>str2 = str.stream().collect(Collectors.toCollection(LinkedList::new));
+        str2.stream().forEach(t -> System.out.print(t.toString() + ";"));
+
+        System.out.println();
+
+        //toSet 转成集合set 无序的
+        Set<String>set1 = str.stream().collect(Collectors.toSet());
+        set1.stream().forEach(t -> System.out.print(t.toString() + ";"));
+
+        System.out.println("====== 连接字符串 joining ");
+        //连接字符串 joining
+        String str3 = str.stream().collect(Collectors.joining());//无参连接字符串
+        System.out.println("str3 = " + str3.toString());
+
+        String str4 = str.stream().collect(Collectors.joining("-"));//以"-" 分割字符串
+        System.out.println("str4 = " + str4.toString());
+
+        String str5 = str.stream().collect(Collectors.joining("-", "start", "end"));//前后加 "start","end"进行分割
+        System.out.println("str5 = " + str5.toString());
+
+        //原生的字符串拼接方法
+        StringJoiner sj1 = new StringJoiner(",");
+        str.stream().forEach(t -> sj1.add(t.toString()));
+        System.out.println("sj1 = " + sj1.toString());
+
+        StringJoiner sj2 = new StringJoiner(", ", "start_", "_end!");
+        str.stream().forEach(t -> sj2.add(t.toString()));
+        System.out.println("sj2 = " + sj2.toString());
+
+        //Collectors.mapping(Integer::valueOf);Collectors.mapping(Double::valueOf);Collectors.mapping(Long::valueOf)
+        System.out.println("Collectors.mapping 类型转换再归纳数据：");
+        List<Double>str6 = str.stream().limit(2).collect(Collectors.mapping(Double::valueOf, Collectors.toList()));
+        System.out.println("str6=" + str6.get(0));
+
+        System.out.println("Collectors.collectingAndThen 归纳数据后再处理数据");
+        int length = str.stream().collect(Collectors.collectingAndThen(Collectors.toList(), t -> t.size()));
+        System.out.println("length = " + length);
+
+
+        System.out.println("Collectors.groupingBy() 分组功能");
+        Map<Integer, List<String>> s = str.stream().collect(Collectors.groupingBy(Integer::valueOf));//默认Collectors.toList()
+        System.out.println("s = " + s.size());
+        for (Integer integer : s.keySet()) {
+            System.out.print("key = " + integer);
+            System.out.println(" value = " + s.get(integer).size());
+        }
+
+        Map<Integer, Set<String>> ss = str.stream().collect(Collectors.groupingBy(Integer::valueOf, Collectors.toSet()));//指定归纳的方法
+        System.out.println("ss = " + ss.size());
+        for (Integer integer : ss.keySet()) {
+            System.out.print("key = " + integer);
+            System.out.println(" value = " + ss.get(integer).size());
+        }
+
+        Map<Integer, Set<String>>sss = str.stream().collect(Collectors.groupingBy(Integer::valueOf, LinkedHashMap::new, Collectors.toSet()));//指定Map生成方式
+        System.out.println("sss=" + sss.size());
+
+        ConcurrentMap<Integer,Set<String>> ssss = str.stream().collect(Collectors.groupingByConcurrent(Integer::valueOf, ConcurrentHashMap::new, Collectors.toSet()));//Collector
+        System.out.println("ssss=" + ssss.size());
+
+
+        System.out.println("Collectors.partitioningBy() 判断分组");
+        //流中的元素按照给定的校验规则的结果分为两个部分
+        Map<Boolean,List<String>> map1 = str.stream().collect(Collectors.partitioningBy(e -> Integer.valueOf(e.toString())>3, Collectors.toList()));
+        Map<Boolean,Set<String>> map2 = str.stream().collect(Collectors.partitioningBy(e -> e.length()>6,Collectors.toSet()));
+        System.out.println(map1.toString() + "\n" + map2.toString());
+
+
+        System.out.println("toMap方法");
+        //Map<String, String>map3 = str.stream().collect(Collectors.toMap(e->e,e->e));//有相同的key会报错
+        Map<String, String>map3 = str.stream().limit(3).collect(Collectors.toMap(e->e,e->e));
+        for (String s1 : map3.keySet()) {
+            System.out.println("key=" + s1 + " value=" + map3.get(s1));
+        }
+
+        //重复key 默认取第一个值
+        Map<String, String>map4 = str.stream().collect(Collectors.toMap(e -> e, e -> e,(a, b) -> a));
+        System.out.println("map4 = " + map4.size());
+
+        //指定Map生成方式
+        Map<String, String>map5 = str.stream().collect(Collectors.toMap(e -> e, e -> e, (a, b) -> b, HashMap::new));
+        System.out.println("map5 = " + map5.size());
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 }
