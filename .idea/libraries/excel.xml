@@ -3,6 +3,8 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/excel/poi-ooxml-3.10-FINAL.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/excel/poi-ooxml-schemas-3.10-FINAL.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/excel/xmlbeans-2.3.0.jar!/" />
+      <root url="jar://$PROJECT_DIR$/lib/excel/dom4j-1.6.1.jar!/" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

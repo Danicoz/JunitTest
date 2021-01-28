@@ -9,7 +9,6 @@
       <root url="jar://$PROJECT_DIR$/lib/inms-utility.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/logback-classic-1.0.13.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/joda-time-2.9.9.jar!/" />
-      <root url="jar://$PROJECT_DIR$/lib/poi-3.0.2-FINAL-20080204.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/fastjson-1.1.41.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/commons-dbutils-1.6.jar!/" />
       <root url="jar://$PROJECT_DIR$/lib/logback-core-1.0.13.jar!/" />
@@ -18,6 +17,8 @@
       <root url="jar://$PROJECT_DIR$/lib/jdom.jar!/" />
     </CLASSES>
     <JAVADOC />
-    <SOURCES />
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/lib/poi-3.10-FINAL.jar!/" />
+    </SOURCES>
   </library>
 </component>

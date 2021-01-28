@@ -81,7 +81,7 @@ public class ExcelUtil {
     public static Workbook createWorkbook(InputStream is, String excelFileName) throws IOException {
         if (excelFileName.toLowerCase().endsWith(".xls")) {
             try {
-                return (Workbook) new HSSFWorkbook(is);    //03
+                return  new HSSFWorkbook(is);    //03
             } catch (Exception e) {
                 return new XSSFWorkbook(is);    //07
             }
@@ -89,7 +89,7 @@ public class ExcelUtil {
             try {
                 return new XSSFWorkbook(is);
             } catch (Exception e) {
-                return (Workbook) new HSSFWorkbook(is);
+                return  new HSSFWorkbook(is);
             }
         }
         return null;
@@ -120,7 +120,7 @@ public class ExcelUtil {
             Workbook workbook = createWorkbook(is, excelFileName);
             LOGGER.info("创建工作簿完成");
             // 创建工作表sheet
-            Sheet sheet = getSheet(workbook, 1);
+            Sheet sheet = getSheet(workbook, 0);
             LOGGER.info("创建工作表完成");
             // 获取sheet中数据的行数
             int rows = sheet.getPhysicalNumberOfRows();
@@ -138,7 +138,18 @@ public class ExcelUtil {
                         if (null == cell) {
                             cell = row.createCell(index);
                         }
-                        dataArr[index++] = getCellValue(cell);
+
+                        HashMap<String, Object> isMergedMap = isMergedRegion(sheet, i, index);
+                        Boolean isMerged = (Boolean) isMergedMap.get("isMerged");
+                        String value = null;
+                        if(isMerged){
+                            value = getMergedRegionValue(sheet, i, index);
+                        }else{
+                            value = getCellValue(cell);
+                        }
+                        dataArr[index++] = value;
+                        //获取表头信息，相当于过滤合并的列
+                        //index = (Integer) isMergedMap.get("lastColumn") + 1;
                     }
                     list.add(dataArr);
                 }else{
@@ -176,7 +187,7 @@ public class ExcelUtil {
         //判断数据的类型
         switch (cell.getCellType()){
             case Cell.CELL_TYPE_NUMERIC: //数字
-                if (HSSFDateUtil.isCellDateFormatted((HSSFCell) cell) ) {
+                if (HSSFDateUtil.isCellDateFormatted( cell) ) {
                     double value = cell.getNumericCellValue();
                     Date date = DateUtil.getJavaDate(value);
                     SimpleDateFormat sdf = null;
@@ -265,7 +276,7 @@ public class ExcelUtil {
      * @param column
      * @return
      */
-    public HashMap<String, Object> isMergedRegion(Sheet sheet, int row, int column) {
+    public static HashMap<String, Object> isMergedRegion(Sheet sheet, int row, int column) {
         HashMap<String, Object> resultMap = new HashMap<String, Object>();
         resultMap.put("isMerged", false);
         resultMap.put("firstColumn", column);
@@ -302,7 +313,7 @@ public class ExcelUtil {
      * @param column
      * @return
      */
-    public String getMergedRegionValue(Sheet sheet, int row, int column) {
+    public static String getMergedRegionValue(Sheet sheet, int row, int column) {
         int sheetMergeCount = sheet.getNumMergedRegions();
 
         for (int i = 0; i < sheetMergeCount; i++) {
