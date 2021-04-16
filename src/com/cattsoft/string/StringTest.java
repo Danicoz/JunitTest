@@ -3,12 +3,10 @@ package com.cattsoft.string;
 import static org.junit.Assert.*;
 
 import java.lang.reflect.Method;
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Set;
+import java.util.*;
 import java.util.regex.Pattern;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import org.apache.commons.lang3.StringUtils;
 import org.junit.Test;
@@ -696,5 +694,62 @@ public static void main(String[] args) {
 		}
 		return null;
 	}
+
+	/**
+	 * List  Set  Array 之间转换
+	 */
+	@Test
+	public void testListToArray(){
+
+		/**********List->array******************/
+		//1. 通过 toArray()
+		List<String> list = new ArrayList<>();
+		for (int i = 0; i < 10; i++) {
+			list.add("value" + i);
+		}
+		String[] arrays1 = list.toArray(new String[0]);
+		System.out.println("arrays1" + Arrays.toString(arrays1));
+
+		//2. jdk8 转换
+		String[] arrays2 = list.stream().toArray(String[]::new);
+		System.out.println("arrays2" + Arrays.toString(arrays2));
+		/****************************/
+
+
+		/**********array -> List******************/
+		/*
+		 * 此种方法生成的List不可进行add和remove操作
+		 * 因为它是一个定长的List集合，跟数组长度一致
+		 */
+		String[] array = new String[]{"value1", "value2", "value3"};
+		List<String> stringList = Arrays.asList(array);
+		System.out.println(stringList.toString());
+
+		//可以操作
+		List<String> stringList1 = new ArrayList<>(Arrays.asList(array));
+		stringList1.remove(0);
+		System.out.println(stringList1.size());
+
+		//jdk8
+		List<String> listStrings = Stream
+				.of(array)
+				.collect(Collectors.toList());
+		System.out.println(listStrings.toString());
+
+		//array -> set
+		Set<String> set = Stream.of(array).collect(Collectors.toSet());
+		System.out.println("array -> set" + set);
+
+	}
+
+	@Test
+	public void testEquals(){
+		String s1 = "2021-04-16 10:00:00";
+		String s2 = "0";
+
+		System.out.println(s2.equals(s1));
+	}
+
+
 }
 	

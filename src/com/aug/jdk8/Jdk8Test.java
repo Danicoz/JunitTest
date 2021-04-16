@@ -544,7 +544,8 @@ public class Jdk8Test {
         resultList2.stream().forEach(e -> System.out.println(e.toString()));
 
         //转成set集合后转成list
-        List<String> resultList3 = myList.stream().map(map -> map.get("sxzqhdm").toString()).collect(Collectors.collectingAndThen(Collectors.toSet(), ArrayList::new));
+        List<String> resultList3 = myList.stream().map(map -> map.get("sxzqhdm").toString())
+                .collect(Collectors.collectingAndThen(Collectors.toSet(), ArrayList::new));
 
         List<String> adCodeList = myList.stream().map(map -> map.get("sxzqhdm").toString())
                 .collect(Collectors.collectingAndThen(Collectors.toSet(), ArrayList::new ) );

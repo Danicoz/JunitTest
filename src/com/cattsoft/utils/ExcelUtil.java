@@ -335,6 +335,18 @@ public class ExcelUtil {
         return null;
     }
 
+    /**
+     * @param cellNum  冻结的列数
+     * @param rowNum   冻结的行数
+     * @param firstCellNum  被固定列右边第一列的列号
+     * @param firstRollNum  被固定行下边第一列的行号
+     * sheet.createFreezePane(1,0,1,0); 固定首列，列号的显示为:A,BCDEF...
+     * sheet.createFreezePane(0,3,0,4); 固定前三行，行号显示位:123, 4567....
+     */
+    public static void createFreezePane(Sheet sheet, int cellNum,int rowNum,int firstCellNum,int firstRollNum ){
+        sheet.createFreezePane(cellNum, rowNum, firstCellNum, firstRollNum);
+    }
+
 
 
 }
