@@ -2,6 +2,7 @@ package com.aug.string;
 
 import org.junit.Test;
 
+import java.math.BigInteger;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -35,6 +36,18 @@ public class testString {
         Integer num1 = new Integer(11);
         Integer num2 = new Integer(22);
         System.out.println(num1.intValue() - num2.intValue());
+    }
+
+    @Test
+    public void testBigInteger(){
+        String str = "0.0";
+        double bb = 0.0;
+        int temp = (int)bb;
+        BigInteger aa = BigInteger.valueOf(temp);
+        System.out.println(Double.valueOf(str).intValue());
+        System.out.println(aa);
+
+
     }
 
 
