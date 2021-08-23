@@ -19,14 +19,14 @@ public class FileDemo {
          // if path exists
          if(bool)
          {
-            // returns the length in bytes文件的大小
+            // returns the length in bytes脦脛录镁碌脛麓贸脨隆
             len = f.length();
                                  
             // path
             path = f.getPath();
             
             // print
-            System.out.print(path+" file length: "+len);
+            System.out.print(path+" file length : "+len);
          }
       }catch(Exception e){
          // if any error occurs
