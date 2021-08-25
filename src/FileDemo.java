@@ -26,7 +26,7 @@ public class FileDemo {
             path = f.getPath();
             
             // print
-            System.out.print(path+" file length : "+len);
+            System.out.print(path+" file  length : "+len);
          }
       }catch(Exception e){
          // if any error occurs
