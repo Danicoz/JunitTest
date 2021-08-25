@@ -1,5 +1,7 @@
 package com.aug.jdk8;
 
+import com.google.common.collect.ArrayListMultimap;
+
 import java.math.BigDecimal;
 import java.util.*;
 import java.util.stream.Collectors;
@@ -136,11 +138,58 @@ public class Jd8Groupby {
         apple5.setPrice(new BigDecimal(20));
         appleList.add(apple5);
 
+        Apple apple7 = new Apple();
+        apple7.setId("5");
+        apple7.setName("fendo6");
+        apple7.setCount((long) 10);
+        apple7.setType("4");
+        apple7.setPrice(new BigDecimal(20));
+        appleList.add(apple7);
+
+        ArrayListMultimap<String, Apple> appleMul = ArrayListMultimap.create();
+        for(Apple apple : appleList){
+            String id = apple.getId();
+            appleMul.put(id, apple);
+        }
+        for(Map.Entry<String, Apple> entry : appleMul.entries()){
+            String key = entry.getKey();
+            Apple apple = entry.getValue();
+            System.out.println(key + ":" + apple.getId());
+
+            List<Apple> apples = appleMul.get(key);
+            System.out.println(key + "  apples.size():" + apples.size());
+        }
+
+
         //分组
         Map<String,List<Apple>> map = appleList.stream().collect(Collectors.groupingBy(Apple::getType));
         for (Map.Entry<String, List<Apple>> entry : map.entrySet()) {
             System.out.println("分组" + entry.getKey() + ":" + entry.getValue().size());
         }
+
+        for (Map.Entry<String, List<Apple>> tempList : map.entrySet()){
+            System.out.println("原来数据量排序：" + tempList.getValue().size());
+        }
+
+        //对Map<String,List<Apple> List大小进行排序
+        HashMap<String, List<Apple>> finalOut = new LinkedHashMap<>();
+        map.entrySet()
+                .stream()
+                .sorted((p1, p2) -> p2.getValue().size() - (p1.getValue().size()))
+                .collect(Collectors.toList()).forEach(ele ->
+                {
+                    if(finalOut.size() < 2){//保留前2个的数据
+                        finalOut.put(ele.getKey(), ele.getValue());
+                    }else{
+                        return;
+                    }
+                }
+        );
+
+        for (Map.Entry<String, List<Apple>> tempList : finalOut.entrySet()){
+            System.out.println("处理数据量排序：" + tempList.getValue().size());
+        }
+
 
         //分组求和
         Map<String, LongSummaryStatistics> collect = appleList.stream().collect(
