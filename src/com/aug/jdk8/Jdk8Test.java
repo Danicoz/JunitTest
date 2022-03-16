@@ -363,6 +363,13 @@ public class Jdk8Test {
                 });
         System.out.println(v3);//-775946240
 
+        //并发操作流
+        Integer v6 = list.parallelStream().reduce((x1,x2) -> {
+            System.out.println("x1=" + x1 + ",x2=" + x2);
+            return x1+x2;
+        }).get();
+        System.out.println("v6 ===== " + v6);
+
     }
 
 
