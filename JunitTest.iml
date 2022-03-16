@@ -41,5 +41,7 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="guava-25.1-jre" level="project" />
+    <orderEntry type="library" name="easypoi-base-4.4.0" level="project" />
   </component>
 </module>
